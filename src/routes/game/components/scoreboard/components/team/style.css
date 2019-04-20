@@ -1,0 +1,19 @@
+.main {
+  margin: 2px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px double white;
+  background: black;
+  border-radius: 10px;
+  align-items: baseline;
+}
+
+.main button {
+  color: white;
+  background: none;
+  margin-left: 10px;
+  width: 50px;
+  padding: 5px;
+  border-radius: 5px;
+}

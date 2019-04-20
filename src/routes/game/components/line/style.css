@@ -1,0 +1,12 @@
+.main {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	border: 1px white;
+	border-style: dashed;
+	justify-content: space-evenly;
+	list-style: none;
+	padding: 10px;
+	margin: 0;
+	flex: 2 1 auto;
+}
