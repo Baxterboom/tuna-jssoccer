@@ -19,7 +19,9 @@ export interface ITeam {
 export default class Team extends Component<IProps, IState> {
 
     public set(team: ITeam, step: number) {
-        team.score += step;
+        const score = team.score + step;
+        if (score < 0) return;
+        team.score = score;
         this.setState(this.state);
     }
 

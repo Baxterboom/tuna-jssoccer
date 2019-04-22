@@ -11,7 +11,8 @@
     "serve": "preact build && preact serve",
     "dev": "preact watch",
     "lint": "tslint --project src",
-    "test": "jest ./tests"
+    "test": "jest ./tests",
+    "precommit": "lint-staged"
   },
   "lint-staged": {
     "*.{js,jsx,css,md,scss}": [
@@ -19,7 +20,7 @@
       "git add"
     ],
     "*.{ts,tsx}": [
-      "!tslint --fix",
+      "tslint --fix",
       "git add"
     ]
   },

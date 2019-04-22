@@ -1,4 +1,4 @@
-.main {
+.line {
 	display: flex;
 	flex-direction: row;
 	width: 100%;
@@ -9,4 +9,7 @@
 	padding: 10px;
 	margin: 0;
 	flex: 2 1 auto;
+	min-width: 10vh;
+	min-height: 50px;
+	align-items: center;
 }

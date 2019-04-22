@@ -1,23 +1,21 @@
 import { Component, h } from "preact";
-import * as style from "./style.css";
-import { IMatch } from "../../Match";
+import Match from "../../match";
 import Team from "./components/team";
+import * as style from "./style.css";
 
 interface IProps {
-    match: IMatch;
+    match: Match;
 }
 
 interface IState {
 }
 
 export default class Scoreboard extends Component<IProps, IState> {
-
     public render(props: IProps, state: IState) {
         return (
-            <div class={[style.main].join(" ")}>
+            <div class={[style.scoreboard].join(" ")}>
                 <Team data={props.match.home} />
                 <Team data={props.match.guest} />
-                <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'></link>
             </div>
         );
     }

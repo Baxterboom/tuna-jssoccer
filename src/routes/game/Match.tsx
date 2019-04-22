@@ -1,11 +1,10 @@
-import { ITeam } from "../team";
+import { IPlayerListEventArgs } from "./components/player-list";
+import { ITeam } from "./components/Scoreboard/components/team";
 
-export interface IMatch {
-  home: ITeam;
-  guest: ITeam;
-}
+export default class Match {
+  public home: ITeam = { id: 0, name: "home", score: 0, lines: [] };
+  public guest: ITeam = { id: 0, name: "guest", score: 0, lines: [] };
+  public playerListEventArgs: IPlayerListEventArgs = {};
 
-export class Match implements IMatch {
-  public home = { id: 0, name: "home", score: 0, lines: [] };
-  public guest = { id: 0, name: "guest", score: 0, lines: [] };
+  constructor(public update: () => void) { }
 }
