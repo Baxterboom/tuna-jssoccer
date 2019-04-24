@@ -7,7 +7,8 @@
         "tslint-config-prettier"
     ],
     "rules": {
-        "interface-name": [true, "never-prefix"],
+        "curly": false,
+        "interface-name": [false, "never-prefix"],
         "object-literal-sort-keys": false,
         "no-empty-interface": false,
         "no-submodule-imports": false,
@@ -33,20 +34,34 @@
         "no-unexpected-multiline": true,
         "valid-jsdoc": true,
         "valid-typeof": true,
-        "early-exit": { "severity": "warning" },
-        "no-collapsible-if": { "severity": "warning" },
-        "no-unnecessary-else": { "severity": "warning" },
-        "no-accessor-recursion": { "severity": "warning" },
+        "early-exit": {
+            "severity": "warning"
+        },
+        "no-collapsible-if": {
+            "severity": "warning"
+        },
+        "no-unnecessary-else": {
+            "severity": "warning"
+        },
+        "no-accessor-recursion": {
+            "severity": "warning"
+        },
         "no-else-after-return": {
             "severity": "warning",
             "options": "allow-else-if"
         },
-        "no-return-undefined": { "severity": "warning" },
-        "no-static-this": { "severity": "warning" },
+        "no-return-undefined": {
+            "severity": "warning"
+        },
+        "no-static-this": {
+            "severity": "warning"
+        },
         "no-var-before-return": {
             "severity": "warning",
             "options": "allow-destructuring"
         },
-        "prefer-const-enum": { "severity": "warning" }
+        "prefer-const-enum": {
+            "severity": "warning"
+        }
     }
 }

@@ -14,34 +14,30 @@ interface IState extends IGame {
 }
 
 export interface IGame {
-    lines: ILine[];
     match: Match;
 }
 
 export default class Game extends Component<IProps, IState> {
     public state: IState = {
-        lines: [],
         match: new Match(() => this.setState(this.state))
     }
 
     constructor() {
         super();
-        this.state.lines = this.state.match.home.lines;
+        this.state.match.lines = this.state.match.home.lines;
         this.setupDefaults();
     }
 
     public addLine() {
         const line: ILine = { players: [], match: this.state.match };
         line.players.push({ ...Player.Empty, line });
-        this.setState({
-            lines: this.state.lines.Add(line)
-        });
+        this.state.match.lines.Add(line)
+        this.setState(this.state);
     }
 
     public removeLine(line: ILine) {
-        this.setState({
-            lines: this.state.lines.Remove(line)
-        });
+        this.state.match.lines.Remove(line);
+        this.setState(this.state);
     }
 
     public addPlayer(line: ILine) {
@@ -50,23 +46,12 @@ export default class Game extends Component<IProps, IState> {
     }
 
     public render(props: IProps, state: IState) {
-        const lines = state.lines.map(f => (
-            <div class={style.pitchLine}>
-                <button class={[button.normal].join(" ")} onClick={this.removeLine.bind(this, f)} title="Remove line">-</button>
-                <Line data={f} />
-                <button class={[button.normal].join(" ")} onClick={this.addPlayer.bind(this, f)} title="Add Player">+</button>
-            </div>));
+        const lines = state.match.lines.map(f => (<Line data={f} />));
 
         return (
             <div class={[style.main].join(" ")}>
-                <Scoreboard match={state.match} />
-                <div class={[style.pitch].join(" ")}>
-                    {lines}
-                </div>
-                <div>
-                    <button class={[style.btnRight].join(" ")} onClick={this.addLine.bind(this)} title="Add line">+</button>
-                    <button class={[style.btnLeft].join(" ")} onClick={this.removeLine.bind(this, state.lines.LastOrDefault())} title="Remove line">-</button>
-                </div>
+                {/* <Scoreboard match={state.match} /> */}
+                <div class={[style.pitch].join(" ")}>{lines}</div>
                 <PlayerList match={state.match} />
             </div>
         );
@@ -86,7 +71,7 @@ export default class Game extends Component<IProps, IState> {
             return line;
         };
 
-        this.state.lines.AddRange([
+        this.state.match.lines.AddRange([
             createLine(1),
             createLine(2),
             createLine(3),

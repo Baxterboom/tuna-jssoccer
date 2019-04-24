@@ -27,20 +27,20 @@ export default class PlayerList extends Component<IProps, IState> {
     }
 
     public render(props: IProps, state: IState) {
-        const event = props.match.playerListEventArgs.event;
+        const args = props.match.playerListEventArgs;
         const classes = [style.playerList];
         let styles: any = {};
 
-        if (event) {
-            styles = this.placement(event);
-            classes.push(style.playerListShow);
-        }
+        if (!args.event) return (<ul></ul>);
+
+        styles = this.placement(args.event);
+        classes.push(style.playerListShow);
 
         const items = state.players.map(m => (<li onClick={this.onSelectPlayer.bind(this, m)}>{m.name}</li>));
 
         return (
             <ul class={classes.join(" ")} style={styles}>
-                <li onClick={this.onRemoveSelectPlayer.bind(this)}>Remove selected</li>
+                <li onClick={this.onRemoveSelectPlayer.bind(this)}>Remove - {args.selected!.name}</li>
                 {items}
             </ul>
         );

@@ -23,6 +23,7 @@ export default class App extends Component {
         return (
             <div id="app">
                 <Styles />
+                <Scripts />
                 <Header />
                 <Router onChange={this.handleRoute}>
                     <Route path="/" component={Home} />
@@ -30,7 +31,6 @@ export default class App extends Component {
                     <Route path="/profile/" component={Profile} user="me" />
                     <Route path="/profile/:user" component={Profile} />
                 </Router>
-                <Scripts />
             </div>
         );
     }
