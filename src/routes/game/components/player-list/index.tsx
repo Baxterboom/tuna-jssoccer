@@ -39,18 +39,19 @@ export default class PlayerList extends Component<IProps, IState> {
     public render(props: IProps, state: IState) {
         const args = props.match.playerListEventArgs;
         const classes = [style.playerList];
-        let styles: any = {};
 
         if (!args.event) return (<ul />);
 
-        // styles = this.placement(args.event);
-        classes.push(style.playerListShow);
+        classes.push(style.show);
 
-        const items = state.players.map(m => (<li onClick={this.onSelectPlayer.bind(this, m)}>{m.name}</li>));
         const selected = props.match.lines.SelectMany(s => s.players);
+        const items = state.players.map(m => {
+            const playerClasses = selected.Any(a => a.id == m.id) ? style.selected : "";
+            return (<li class={playerClasses} onClick={this.onSelectPlayer.bind(this, m)}>{m.name}</li>);
+        });
 
         return (
-            <ul class={classes.join(" ")} style={styles}>
+            <ul class={classes.join(" ")}>
                 <li onClick={this.onRemoveSelectPlayer.bind(this)}>Remove - {args.selected!.name}</li>
                 {items}
             </ul>
@@ -80,14 +81,5 @@ export default class PlayerList extends Component<IProps, IState> {
 
         selected.line.players.Remove(selected);
         this.close();
-    }
-
-    private placement(target: MouseEvent) {
-        if (!target) { return {}; }
-
-        return {
-            top: target.clientY - 20,
-            left: target.clientX - 10
-        }
     }
 }
