@@ -1,15 +1,13 @@
 .player {
 	position: relative;
-	background: none;
-	background-image: url(../../../../assets/img/tshirt.png);
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-position: center;
-	height: 100%;
-	width: 100%;
-	min-width: 50px;
-	text-align: center;
-	padding-top: 10%;
+	background: grey;
+	color: white;
+	padding: 5px;
+	height: 40px;
+	padding: 10px;
+	border-radius: 20px;
+	vertical-align: middle;
+	margin: 2px;
 }
 
 .player:hover {
@@ -17,8 +15,29 @@
 	cursor: pointer;
 }
 
-.number {}
+.player .number {
+	display: inline-block;
+	margin-right: 20px;
+	color: darkred;
+	width: 25px;
+	text-align: center;
+}
 
-.text {
+.player .number:after {
+	content: "";
+	position: absolute;
+	opacity: 0.5;
+	top: 4px;
+	left: 4px;
+	z-index: 1;
+	display: block;
+	border-radius: 15px;
+	width: 40px;
+	height: 30px;
+	background: white;
+}
+
+.player .text {
+	display: inline-block;
 	vertical-align: bottom;
 }

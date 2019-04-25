@@ -20,5 +20,15 @@ for (var key in map) {
   data = data.replace(new RegExp(`"${key}":`, "g"), `"${map[key]}":`);
 }
 
-console.log(`export interface IPlayerData { ${type} }`);
-console.log(`export default class Data { public static readonly PlayerData = `, data, `;}`);
+const content = `
+export interface IPlayerData { ${type} }
+export default class Data { 
+  public static readonly Coaches = ${data}.Where(w => w.group != "Spelare");
+  public static readonly Players = ${data}.Where(w => w.group == "Spelare");
+}`;
+
+const fs = require('fs');
+fs.writeFile("players.tsx", content, function (err) {
+  if (err) return console.log(err);
+  console.log("The file was saved!");
+});

@@ -17,8 +17,13 @@
 	right: 10px;
 }
 
-.player-list-show {
+.player-list.show {
 	display: block;
+	transition: all 0.1s ease;
+}
+
+.player-list .selected {
+	opacity: 0.2;
 }
 
 .player-list li:first-child {
