@@ -26,44 +26,28 @@ export default class Game extends Component<IProps, IState> {
     constructor() {
         super();
         this.state.match.lines = this.state.match.home.lines;
-        this.randomLineUp();
-    }
-
-    public addLine() {
-        const line: ILine = { players: [], match: this.state.match };
-        line.players.push({ ...Player.Empty, line });
-        this.state.match.lines.Add(line)
-        this.setState(this.state);
-    }
-
-    public removeLine(line: ILine) {
-        this.state.match.lines.Remove(line);
-        this.setState(this.state);
-    }
-
-    public addPlayer(line: ILine) {
-        line.players.Add({ ...Player.Empty, line });
-        this.setState(this.state);
+        this.randomizeLineUp();
     }
 
     public render(props: IProps, state: IState) {
-        const lines = state.match.lines.map(f => (<Line data={f} />));
-
+        const lines = state.match.lines.map((f, i) => (<Line key={i} data={f} />));
         return (
             <div class={[style.main].join(" ")}>
                 {/* <Scoreboard match={state.match} /> */}
                 <div class={[style.pitch].join(" ")}>{lines}</div>
                 <PlayerList match={state.match} />
+                <img class={style.reload}
+                    src="assets/img/refresh_48px.svg"
+                    onClick={this.randomizeLineUp.bind(this)}
+                    title="New line up" />
             </div>
         );
     }
 
-    private randomLineUp() {
+    private randomizeLineUp() {
         this.state.match.lines.Clear();
         const players = Data.Players.Clone();
         const lines = [1, 2, 3, 1];
-
-        console.log(players)
 
         lines.ForEach(f => {
             const line: ILine = {
@@ -73,7 +57,6 @@ export default class Game extends Component<IProps, IState> {
 
             line.players.ForEach((f, i) => {
                 const index = Math.floor(Math.random() * players.length);
-                console.log(index, Math.random(), players.length)
                 const player = players[index];
                 players.Remove(player);
                 line.players[i] = {
@@ -86,5 +69,7 @@ export default class Game extends Component<IProps, IState> {
 
             this.state.match.lines.Add(line);
         });
+
+        this.setState(this.state);
     }
 }

@@ -8,6 +8,7 @@
 	border-radius: 20px;
 	vertical-align: middle;
 	margin: 2px;
+	box-shadow: 2px 3px 8px 4px rgba(0, 0, 0, 0.17)
 }
 
 .player:hover {
@@ -18,7 +19,7 @@
 .player .number {
 	display: inline-block;
 	margin-right: 20px;
-	color: darkred;
+	color: #c1c1c1;
 	width: 25px;
 	text-align: center;
 }
