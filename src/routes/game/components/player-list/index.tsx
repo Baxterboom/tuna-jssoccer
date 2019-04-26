@@ -23,8 +23,7 @@ export default class PlayerList extends Component<IProps, IState> {
     }
 
     public componentWillMount() {
-        const players = Data.PlayerData
-            .Where(w => w.group == "Spelare")
+        const players = Data.Players
             .Select(s => {
                 const player: IPlayer = {
                     id: s.firstname + " " + s.lastname,

@@ -6,6 +6,7 @@ import PlayerList from "./components/player-list";
 import Scoreboard from "./components/Scoreboard";
 import Match from "./match";
 import * as style from "./style.css";
+import Data from "../../assets/db/players";
 
 interface IProps {
 }
@@ -25,7 +26,7 @@ export default class Game extends Component<IProps, IState> {
     constructor() {
         super();
         this.state.match.lines = this.state.match.home.lines;
-        this.setupDefaults();
+        this.randomLineUp();
     }
 
     public addLine() {
@@ -57,24 +58,33 @@ export default class Game extends Component<IProps, IState> {
         );
     }
 
-    private setupDefaults() {
-        const createLine = (countPlayers: number) => {
+    private randomLineUp() {
+        this.state.match.lines.Clear();
+        const players = Data.Players.Clone();
+        const lines = [1, 2, 3, 1];
+
+        console.log(players)
+
+        lines.ForEach(f => {
             const line: ILine = {
                 match: this.state.match,
-                players: new Array<IPlayer>(countPlayers)
+                players: new Array<IPlayer>(f)
             };
 
             line.players.ForEach((f, i) => {
-                line.players[i] = { ...Player.Empty, line };
+                const index = Math.floor(Math.random() * players.length);
+                console.log(index, Math.random(), players.length)
+                const player = players[index];
+                players.Remove(player);
+                line.players[i] = {
+                    id: player.firstname + " " + player.lastname || index.toString(),
+                    name: player.firstname + " " + player.lastname || index.toString(),
+                    number: parseInt(player.nr || "0"),
+                    line
+                };
             });
 
-            return line;
-        };
-
-        this.state.match.lines.AddRange([
-            createLine(1),
-            createLine(2),
-            createLine(3),
-            createLine(1)]);
+            this.state.match.lines.Add(line);
+        });
     }
 }
