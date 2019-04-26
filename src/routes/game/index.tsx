@@ -1,7 +1,6 @@
 import { Component, h } from "preact";
-import * as button from "./components/Button/style.css";
 import Line, { ILine } from "./components/Line";
-import Player, { IPlayer } from "./components/Player";
+import { IPlayer } from "./components/Player";
 import PlayerList from "./components/player-list";
 import Scoreboard from "./components/Scoreboard";
 import Match from "./match";
@@ -46,7 +45,7 @@ export default class Game extends Component<IProps, IState> {
 
     private randomizeLineUp() {
         this.state.match.lines.Clear();
-        const players = Data.Players.Clone();
+        const players = Data.Players();
         const lines = [1, 2, 3, 1];
 
         lines.ForEach(f => {

@@ -4,7 +4,7 @@ import {
 
 export default function (config, env, helpers) {
     if (env.production) {
-        // config.output.publicPath = '';
+        config.output.publicPath = '';
     }
 
     // Switch css-loader for typings-for-css-modules-loader, which is a wrapper

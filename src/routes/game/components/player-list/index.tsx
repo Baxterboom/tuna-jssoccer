@@ -23,7 +23,7 @@ export default class PlayerList extends Component<IProps, IState> {
     }
 
     public componentWillMount() {
-        const players = Data.Players
+        const players = Data.Players()
             .Select(s => {
                 const player: IPlayer = {
                     id: s.firstname + " " + s.lastname,

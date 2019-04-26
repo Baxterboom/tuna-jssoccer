@@ -48,14 +48,14 @@
     "tslint-consistent-codestyle": "^1.14.1",
     "tslint-eslint-rules": "^5.4.0",
     "tslint-react": "^3.6.0",
-    "tuna-jslinq": "1.0.5",
     "typescript": "^3.2.1",
     "typings-for-css-modules-loader": "^1.7.0"
   },
   "dependencies": {
     "preact": "^8.3.1",
     "preact-compat": "^3.18.4",
-    "preact-router": "^2.6.1"
+    "preact-router": "^2.6.1",
+    "tuna-jslinq": "1.0.5"
   },
   "peerDependencies": {
     "prettier": ">1.0.0",

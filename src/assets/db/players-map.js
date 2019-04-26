@@ -17,14 +17,16 @@ var type = "";
 
 for (var key in map) {
   type += `${map[key]}: string;`;
-  data = data.replace(new RegExp(`"${key}":`, "g"), `"${map[key]}":`);
+  data = data.replace(`"":"",`, ``)
+    .replace(new RegExp(`"${key}":`, "g"), `${map[key]}:`);
 }
 
 const content = `
 export interface IPlayerData { ${type} }
 export default class Data { 
-  public static readonly Coaches = ${data}.Where(w => w.group != "Spelare");
-  public static readonly Players = ${data}.Where(w => w.group == "Spelare");
+  public static readonly All = ${data};
+  public static readonly Coaches = Data.All.Where(w => w.group != "Spelare");
+  public static readonly Players = Data.All.Where(w => w.group == "Spelare");
 }`;
 
 const fs = require('fs');
