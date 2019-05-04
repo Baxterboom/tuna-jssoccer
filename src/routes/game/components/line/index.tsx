@@ -3,6 +3,7 @@ import ActionMenu, { IActionMenuOptions } from "../../../../components/action-me
 import Match from "../../match";
 import Player, { IPlayer } from "../Player";
 import * as style from "./style.css";
+
 interface IProps {
   data: ILine;
 }
@@ -61,7 +62,7 @@ export default class Line extends Component<IProps, IState> {
     return (
       <div class={style.line}>
         <ActionMenu options={state.actionMenu} />
-        <div class={style.players}>{players}</div>
+        <div class={["players", style.players].join(" ")}>{players}</div>
       </div>);
   }
 }

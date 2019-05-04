@@ -32,7 +32,7 @@ export default class ActionMenu extends Component<IProps, IState>{
     }
 
     public close(e: MouseEvent) {
-        if (this.element.contains(e.target as Node)) return;
+        if (!this.element || (this.element as HTMLElement).contains(e.target as Node)) return;
         this.setState({ show: false });
     }
 

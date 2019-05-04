@@ -1,4 +1,7 @@
 .player {
+	/* temp fix dragular: https://github.com/bevacqua/dragula/issues/468*/
+	touch-action: none;
+
 	position: relative;
 	background: grey;
 	color: white;

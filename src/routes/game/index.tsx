@@ -6,6 +6,7 @@ import Scoreboard from "./components/Scoreboard";
 import Match from "./match";
 import * as style from "./style.css";
 import Data from "../../assets/db/players";
+import dragula from "dragula";
 
 interface IProps {
 }
@@ -26,6 +27,12 @@ export default class Game extends Component<IProps, IState> {
         super();
         this.state.match.lines = this.state.match.home.lines;
         this.randomizeLineUp();
+    }
+
+    public componentDidMount() {
+        var containers = [].slice.call(document.getElementsByClassName("players")) as Element[];
+        console.log(containers)
+        dragula(containers);
     }
 
     public render(props: IProps, state: IState) {
