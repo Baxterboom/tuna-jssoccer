@@ -1,6 +1,7 @@
 .line {
 	display: flex;
 	flex-direction: row;
+	position: relative;
 	width: 100%;
 	border: 1px outset white;
 	margin: 2px 0;
@@ -9,6 +10,19 @@
 	min-height: 50px;
 	background: #ffc107;
 	overflow: hidden;
+}
+
+.line:first-child {
+	background: orange;
+}
+
+.line:first-child:before {
+	content: "Goalie";
+	position: absolute;
+	top: 25px;
+	right: -10px;
+
+	transform: rotate(90deg);
 }
 
 .line .players {

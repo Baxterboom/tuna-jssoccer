@@ -58,7 +58,8 @@ export default class Line extends Component<IProps, IState> {
   }
 
   public render(props: IProps, state: IState) {
-    const players = props.data.players.map(f => <Player key={f.id} data={f} />);
+    let count = 0;
+    const players = props.data.players.map(f => <Player key={count++} data={f} />);
     return (
       <div class={style.line}>
         <ActionMenu options={state.actionMenu} />
