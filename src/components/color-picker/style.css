@@ -1,0 +1,9 @@
+ul.color-picker {
+  position: absolute;
+  z-index: 1;
+  list-style: none;
+}
+
+ul.color-picker li {
+  padding: 30px;
+}
