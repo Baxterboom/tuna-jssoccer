@@ -7,10 +7,16 @@ body {
 	background: #FAFAFA;
 	font-family: 'Orbitron', monospace;
 	font-weight: 400;
-	color: #444;
+
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	font-size: 90%;
+	background: darkgreen;
+	color: white;
+}
+
+a {
+	color: white;
 }
 
 * {

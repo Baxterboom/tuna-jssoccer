@@ -2,4 +2,9 @@
 	padding: 56px 20px;
 	min-height: 100%;
 	width: 100%;
+	font-size: 150%;
+}
+
+ul.home {
+	list-style: none;
 }

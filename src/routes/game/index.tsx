@@ -9,6 +9,7 @@ import Data from "../../assets/db/players";
 import dragula from "dragula";
 
 interface IProps {
+    lineup: string;
 }
 
 interface IState extends IGame {
@@ -26,12 +27,19 @@ export default class Game extends Component<IProps, IState> {
     constructor() {
         super();
         this.state.match.lines = this.state.match.home.lines;
-        this.randomizeLineUp();
     }
 
     public componentDidMount() {
+        this.randomizeLineUp(this.props.lineup.split(","));
+    }
+
+    public componentDidUpdate() {
+        console.log("componentDidUpdate");
         var containers = [].slice.call(document.getElementsByClassName("players")) as Element[];
-        dragula(containers);
+        //@ts-ignore: copySortSource missing from typings
+        dragula(containers, {
+            copySortSource: true
+        });
     }
 
     public render(props: IProps, state: IState) {
@@ -43,21 +51,22 @@ export default class Game extends Component<IProps, IState> {
                 <PlayerList match={state.match} />
                 <img class={style.reload}
                     src="assets/img/refresh_48px.svg"
-                    onClick={this.randomizeLineUp.bind(this)}
+                    onClick={this.randomizeLineUp.bind(this, props.lineup.split(","))}
                     title="New line up" />
             </div>
         );
     }
 
-    private randomizeLineUp() {
+    private randomizeLineUp(lineup: any[]) {
         this.state.match.lines.Clear();
         const players = Data.Players();
-        const lines = [1, 2, 3, 1];
 
-        lines.ForEach(f => {
+        lineup.ForEach(f => {
+            let playerCount = parseInt(f);
+            if (playerCount > players.length) playerCount = players.length;
             const line: ILine = {
                 match: this.state.match,
-                players: new Array<IPlayer>(f)
+                players: new Array<IPlayer>(playerCount)
             };
 
             line.players.ForEach((f, i) => {

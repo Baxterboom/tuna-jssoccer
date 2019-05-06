@@ -8,9 +8,9 @@
     "start:production": "npm run -s serve",
     "start:development": "npm run -s dev",
     "_build": "preact build",
-    "build": "preact build --production --no-prerender",
+    "build": "preact build --production --no-prerender --template src/index.html",
     "serve": "preact build && preact serve",
-    "dev": "preact watch",
+    "dev": "preact watch --template src/index.html",
     "lint": "tslint --project src",
     "test": "jest ./tests"
   },

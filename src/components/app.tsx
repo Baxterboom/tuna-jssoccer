@@ -29,7 +29,8 @@ export default class App extends Component {
                 <Header />
                 <Router onChange={this.handleRoute} history={createHashHistory()}>
                     <Route path="/" component={Home} />
-                    <Route path="/game" component={Game} />
+                    <Route path="/game/" component={Game} lineup="1, 2, 3, 1" />
+                    <Route path="/game/:lineup" component={Game} />
                     <Route path="/profile/" component={Profile} user="me" />
                     <Route path="/profile/:user" component={Profile} />
                 </Router>

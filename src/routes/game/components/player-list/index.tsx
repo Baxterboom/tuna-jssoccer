@@ -65,9 +65,10 @@ export default class PlayerList extends Component<IProps, IState> {
     }
 
     private setColor(color: string) {
-        console.log(111);
         const args = this.props.match.playerListEventArgs;
-        args.selected!.color = color
+        args.selected!.color = color;
+        this.props.match.update();
+        this.close();
     }
 
     private onSelectPlayer(player: IPlayer) {
