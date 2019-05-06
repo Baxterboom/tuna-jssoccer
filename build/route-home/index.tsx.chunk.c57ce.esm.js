@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{FA6U:function(e){e.exports={home:"home__2Q5nZ"}},FDtd:function(e,n,o){"use strict";o.r(n),o.d(n,"default",function(){return c});var t=o("4dxh"),s=o("FA6U");class c extends t.Component{render(){return Object(t.h)("div",{class:s.home},Object(t.h)("h1",null,"Home"),Object(t.h)("p",null,"This is the Home component."))}}}}]);
+//# sourceMappingURL=index.tsx.chunk.c57ce.esm.js.map

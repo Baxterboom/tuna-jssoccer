@@ -3,6 +3,7 @@ import Match from "../../match";
 import { IPlayer } from "../Player";
 import * as style from "./style.css";
 import Data from "../../../../assets/db/players";
+import ColorPicker from "../../../../components/color-picker";
 
 interface IProps {
     match: Match;
@@ -52,6 +53,7 @@ export default class PlayerList extends Component<IProps, IState> {
         return (
             <ul class={classes.join(" ")}>
                 <li onClick={this.onRemoveSelectPlayer.bind(this)}>Remove - {args.selected!.name}</li>
+                <li><ColorPicker options={{ onClick: this.setColor.bind(this) }} /></li>
                 {items}
             </ul>
         );
@@ -60,6 +62,12 @@ export default class PlayerList extends Component<IProps, IState> {
     private close() {
         this.props.match.playerListEventArgs = {};
         this.props.match.update();
+    }
+
+    private setColor(color: string) {
+        console.log(111);
+        const args = this.props.match.playerListEventArgs;
+        args.selected!.color = color
     }
 
     private onSelectPlayer(player: IPlayer) {

@@ -5,10 +5,9 @@
 	position: relative;
 	background: grey;
 	color: white;
-	padding: 5px;
-	height: 40px;
-	padding: 10px;
+	padding: 6px;
 	border-radius: 20px;
+	text-align: center;
 	vertical-align: middle;
 	margin: 2px;
 	box-shadow: 2px 3px 8px 4px rgba(0, 0, 0, 0.17)
@@ -21,12 +20,13 @@
 
 .player .number {
 	display: inline-block;
-	margin-right: 20px;
+	margin-right: 5px;
 	color: #c1c1c1;
 	width: 25px;
 	text-align: center;
 }
 
+/* 
 .player .number:after {
 	content: "";
 	position: absolute;
@@ -39,7 +39,7 @@
 	width: 40px;
 	height: 30px;
 	background: white;
-}
+} */
 
 .player .text {
 	display: inline-block;

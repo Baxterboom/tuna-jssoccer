@@ -41,6 +41,10 @@ export default class ActionMenu extends Component<IProps, IState>{
         this.close(e);
     }
 
+    public isOverflowing() {
+        return this.element.scrollHeight > this.element.clientHeight || this.element.scrollWidth > this.element.clientWidth;
+    }
+
     public render(props: IProps, state: IState) {
         const items = JSLinq(props.options.items).Select(f => (<li onClick={e => this.callback(e, f)}>{f.text}</li>));
         const itemsClasses = [style.items];

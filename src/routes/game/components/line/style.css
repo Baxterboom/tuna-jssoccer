@@ -9,7 +9,6 @@
 	min-width: 10vh;
 	min-height: 50px;
 	background: #ffc107;
-	overflow: hidden;
 }
 
 .line:first-child {
@@ -19,7 +18,7 @@
 .line:first-child:before {
 	content: "Goalie";
 	position: absolute;
-	top: 25px;
+	top: 17px;
 	right: -10px;
 
 	transform: rotate(90deg);

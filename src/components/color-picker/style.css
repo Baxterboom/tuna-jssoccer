@@ -1,9 +1,17 @@
 ul.color-picker {
-  position: absolute;
-  z-index: 1;
+  padding: 0 5%;
   list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
 }
 
 ul.color-picker li {
-  padding: 30px;
+  margin: 5px;
+  flex: 1 1 auto;
+}
+
+ul.color-picker li:hover {
+  opacity: 0.5;
 }

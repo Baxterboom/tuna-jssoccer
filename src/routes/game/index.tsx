@@ -7,7 +7,6 @@ import Match from "./match";
 import * as style from "./style.css";
 import Data from "../../assets/db/players";
 import dragula from "dragula";
-import ColorPicker from "../../components/color-picker";
 
 interface IProps {
 }
@@ -32,7 +31,6 @@ export default class Game extends Component<IProps, IState> {
 
     public componentDidMount() {
         var containers = [].slice.call(document.getElementsByClassName("players")) as Element[];
-        console.log(containers)
         dragula(containers);
     }
 
@@ -41,7 +39,6 @@ export default class Game extends Component<IProps, IState> {
         return (
             <div class={[style.main].join(" ")}>
                 {/* <Scoreboard match={state.match} /> */}
-                <ColorPicker />
                 <div class={[style.pitch].join(" ")}>{lines}</div>
                 <PlayerList match={state.match} />
                 <img class={style.reload}
