@@ -32,15 +32,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "assets\\img\\tshirt.png"
   },
   {
-    "revision": "4ee653b5714e58c4aef5",
-    "url": "bundle.4ee65.js"
+    "revision": "bc06e849eb328b555b3a",
+    "url": "bundle.b3cfc.css"
   },
   {
-    "revision": "4ee653b5714e58c4aef5",
-    "url": "bundle.75395.css"
+    "revision": "bc06e849eb328b555b3a",
+    "url": "bundle.bc06e.js"
   },
   {
-    "revision": "f3a2b7e9d6de695aea4bdee536d9646a",
+    "revision": "ab80efb1bc2691a361bc918fa2e3138a",
     "url": "index.html"
   },
   {
@@ -48,35 +48,35 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "polyfills.71af2.js"
   },
   {
-    "revision": "cc03b76c8d4544ec5dbe",
-    "url": "route-game/index.tsx.chunk.8e875.css"
+    "revision": "29422f6956b929a08981",
+    "url": "route-game/index.tsx.chunk.29422.js"
   },
   {
-    "revision": "cc03b76c8d4544ec5dbe",
-    "url": "route-game/index.tsx.chunk.cc03b.js"
+    "revision": "29422f6956b929a08981",
+    "url": "route-game/index.tsx.chunk.2e80e.css"
   },
   {
-    "revision": "0c9b6fc2cc88e39d2897",
-    "url": "route-home/index.tsx.chunk.0c9b6.js"
+    "revision": "944cad2c080d6189c488",
+    "url": "route-home/index.tsx.chunk.944ca.js"
   },
   {
-    "revision": "0c9b6fc2cc88e39d2897",
-    "url": "route-home/index.tsx.chunk.1db39.css"
+    "revision": "944cad2c080d6189c488",
+    "url": "route-home/index.tsx.chunk.f5249.css"
   },
   {
-    "revision": "46678f83ae106d03abd0",
-    "url": "route-profile/index.tsx.chunk.23f7d.css"
+    "revision": "92f9019176b9fea7aa22",
+    "url": "route-profile/index.tsx.chunk.530bf.css"
   },
   {
-    "revision": "46678f83ae106d03abd0",
-    "url": "route-profile/index.tsx.chunk.46678.js"
+    "revision": "92f9019176b9fea7aa22",
+    "url": "route-profile/index.tsx.chunk.92f90.js"
   },
   {
     "revision": "13b82ed03d648451c57be206f75f0216",
     "url": "sw-debug.js"
   },
   {
-    "revision": "b97bd9269b1482416ab160f4ce05ca90",
+    "revision": "9dd8afa7407d7c53f0eae09565a85d6f",
     "url": "sw-esm.js"
   },
   {
