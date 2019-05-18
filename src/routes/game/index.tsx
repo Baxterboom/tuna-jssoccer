@@ -6,7 +6,7 @@ import Scoreboard from "./components/Scoreboard";
 import Match from "./match";
 import * as style from "./style.css";
 import Data from "../../assets/db/players";
-import dragula from "dragula";
+import dragula, { Drake } from "dragula";
 
 interface IProps {
     lineup: string;
@@ -20,6 +20,8 @@ export interface IGame {
 }
 
 export default class Game extends Component<IProps, IState> {
+    public drake!: Drake;
+
     public state: IState = {
         match: new Match(() => this.setState(this.state))
     }
@@ -34,11 +36,11 @@ export default class Game extends Component<IProps, IState> {
     }
 
     public componentDidUpdate() {
-        var containers = [].slice.call(document.getElementsByClassName("players")) as Element[];
+        if (this.drake) this.drake.destroy();
+        const containers = [].slice.call(document.getElementsByClassName("players")) as Element[];
 
-        dragula(containers).destroy();
         //@ts-ignore: copySortSource missing from typings
-        dragula(containers, {
+        this.drake = dragula(containers, {
             copySortSource: true
         });
     }

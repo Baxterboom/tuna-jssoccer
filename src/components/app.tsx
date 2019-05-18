@@ -6,8 +6,6 @@ import Home from "../routes/home";
 import Profile from "../routes/profile";
 import Header from "./header";
 import Game from "../routes/game";
-import Scripts from "./scripts";
-import Styles from "./styles";
 
 
 if ((module as any).hot) {
@@ -24,8 +22,6 @@ export default class App extends Component {
     public render() {
         return (
             <div id="app">
-                <Styles />
-                <Scripts />
                 <Header />
                 <Router onChange={this.handleRoute} history={createHashHistory()}>
                     <Route path="/" component={Home} />

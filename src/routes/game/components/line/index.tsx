@@ -18,6 +18,7 @@ export interface ILine {
 }
 
 export default class Line extends Component<IProps, IState> {
+
   public readonly state: IState = {
     actionMenu: {
       title: "A title",

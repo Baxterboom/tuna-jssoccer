@@ -9,6 +9,10 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="description" content="the tuna-jssoccer app">
   <link rel="manifest" href="<%= htmlWebpackPlugin.files.publicPath %>manifest.json">
+  <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+  </link>
+  <link href='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.css' rel='stylesheet' type='text/css'>
+  </link>
   <% if (htmlWebpackPlugin.options.manifest.theme_color) { %>
   <meta name="theme-color" content="<%= htmlWebpackPlugin.options.manifest.theme_color %>">
   <% } %>
@@ -17,7 +21,9 @@
   <% for (const file in loadManifest[htmlWebpackPlugin.options.url]) { %>
   <% if (htmlWebpackPlugin.options.preload && file && file.match(filesRegexp)) { %>
   <% /* crossorigin for main bundle as that is loaded from `<script type=module` tag, other lazy loaded bundles are from webpack so its not needed */ %>
-  <link rel="preload" href="<%= htmlWebpackPlugin.files.publicPath + file %>" as="<%= file.match(/\.css$/)?'style':'script' %>" <%= file.match(/bundle\.\w{5}\.esm\.js$/)?'crossorigin="anonymous"':'' %>>
+  <link rel="preload" href="<%= htmlWebpackPlugin.files.publicPath + file %>"
+    as="<%= file.match(/\.css$/)?'style':'script' %>"
+    <%= file.match(/bundle\.\w{5}\.esm\.js$/)?'crossorigin="anonymous"':'' %>>
   <% } %>
   <% } %>
 </head>
@@ -40,7 +46,9 @@
       }
     }();
   </script>
-  <script crossorigin="anonymous" src="<%= htmlWebpackPlugin.files.publicPath %><%= webpack.assets.filter(entry => entry.name.match(/bundle(\.\w{5})?.esm.js$/))[0].name %>" type="module"></script>
+  <script crossorigin="anonymous"
+    src="<%= htmlWebpackPlugin.files.publicPath %><%= webpack.assets.filter(entry => entry.name.match(/bundle(\.\w{5})?.esm.js$/))[0].name %>"
+    type="module"></script>
   <%
 				/*Fetch and Promise polyfills are not needed for browsers that support type=module
 				Please re-evaluate below line if adding more polyfills.*/
@@ -50,11 +58,14 @@
   </script>
   <script nomodule defer src="<%= htmlWebpackPlugin.files.chunks['bundle'].entry %>"></script>
   <% } else { %>
-  <script <%= htmlWebpackPlugin.options.scriptLoading %> src="<%= htmlWebpackPlugin.files.chunks['bundle'].entry %>"></script>
+  <script <%= htmlWebpackPlugin.options.scriptLoading %>
+    src = "<%= htmlWebpackPlugin.files.chunks['bundle'].entry %>" ></script>
   <script>
-    window.fetch || document.write('<script src="<%= htmlWebpackPlugin.files.chunks["polyfills"].entry %>"><\/script>')
+      window.fetch || document.write('<script src="<%= htmlWebpackPlugin.files.chunks["polyfills"].entry %>"><\/script>')
   </script>
   <% } %>
+  <script src="https://cdn.jsdelivr.net/npm/tuna-jslinq@1.0.5/dist/tuna-JSLinq.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.css"></script>
 </body>
 
 </html>

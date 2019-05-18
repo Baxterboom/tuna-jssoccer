@@ -1,5 +1,9 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
+    "revision": "0e7752126b44ba5c1d0889f2490fe8a5",
+    "url": "assets\\db\\players-map.js"
+  },
+  {
     "revision": "59e221032ab061cad83b6ce2bcddbde8",
     "url": "assets\\icons\\android-chrome-192x192.png"
   },
@@ -28,32 +32,32 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "assets\\img\\tshirt.png"
   },
   {
-    "revision": "da4349b02f30acb250ccd8a6016e9ed3",
-    "url": "bundle.5761c.esm.js"
+    "revision": "673213966e9132191bfa",
+    "url": "bundle.67321.js"
   },
   {
-    "revision": "bc06e849eb328b555b3a",
+    "revision": "673213966e9132191bfa",
     "url": "bundle.b3cfc.css"
   },
   {
-    "revision": "ab80efb1bc2691a361bc918fa2e3138a",
+    "revision": "5959696655ad76fec8511a2004a4b6f4",
     "url": "index.html"
   },
   {
-    "revision": "5ff8339e348227ad9c0f7b1bfecfdd44",
-    "url": "polyfills.621d0.esm.js"
+    "revision": "71af231861e725fe19c3",
+    "url": "polyfills.71af2.js"
   },
   {
-    "revision": "ec5f334b01f43f7fa27a1618899f44a7",
-    "url": "route-game/index.tsx.chunk.09a69.esm.js"
-  },
-  {
-    "revision": "29422f6956b929a08981",
+    "revision": "d004c50385db4e3c203c",
     "url": "route-game/index.tsx.chunk.2e80e.css"
   },
   {
-    "revision": "4b2ab7ac28f50d1691b414b6e6162f3a",
-    "url": "route-home/index.tsx.chunk.573a2.esm.js"
+    "revision": "d004c50385db4e3c203c",
+    "url": "route-game/index.tsx.chunk.d004c.js"
+  },
+  {
+    "revision": "944cad2c080d6189c488",
+    "url": "route-home/index.tsx.chunk.944ca.js"
   },
   {
     "revision": "944cad2c080d6189c488",
@@ -64,7 +68,19 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "route-profile/index.tsx.chunk.530bf.css"
   },
   {
-    "revision": "9f893777beb3aa3d62b00b804d799f69",
-    "url": "route-profile/index.tsx.chunk.690e0.esm.js"
+    "revision": "92f9019176b9fea7aa22",
+    "url": "route-profile/index.tsx.chunk.92f90.js"
+  },
+  {
+    "revision": "13b82ed03d648451c57be206f75f0216",
+    "url": "sw-debug.js"
+  },
+  {
+    "revision": "256ed524e91e130895cb6531f068aa4b",
+    "url": "sw-esm.js"
+  },
+  {
+    "revision": "544092a1710e8321e8ef7b459ac52fff",
+    "url": "sw.js"
   }
 ]);
