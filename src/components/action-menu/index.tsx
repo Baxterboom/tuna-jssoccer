@@ -1,5 +1,6 @@
 import { Component, h } from "preact";
 import * as style from "./style.css";
+import { OutsideClickHander } from "../components";
 
 interface IProps {
     options: IActionMenuOptions;
@@ -23,22 +24,17 @@ export interface IActionMenuItem<T = any> {
 export default class ActionMenu extends Component<IProps, IState>{
     private element!: HTMLElement;
 
-    public toggle() {
-        this.state.show
-            ? document.removeEventListener("mousedown", this.close.bind(this), false)
-            : document.addEventListener("mousedown", this.close.bind(this), false);
-
-        this.setState({ show: !this.state.show });
+    public close() {
+        this.setState({ show: false });
     }
 
-    public close(e: MouseEvent) {
-        if (!this.element || (this.element as HTMLElement).contains(e.target as Node)) return;
-        this.setState({ show: false });
+    public toggle() {
+        this.setState({ show: !this.state.show });
     }
 
     public callback(e: MouseEvent, item: IActionMenuItem) {
         if (item.onClick) item.onClick(e, item);
-        this.close(e);
+        this.close();
     }
 
     public isOverflowing() {
@@ -49,7 +45,10 @@ export default class ActionMenu extends Component<IProps, IState>{
         const items = JSLinq(props.options.items).Select(f => (<li onClick={e => this.callback(e, f)}>{f.text}</li>));
         const itemsClasses = [style.items];
 
-        if (state.show) itemsClasses.push(style.show);
+        if (state.show) {
+            itemsClasses.push(style.show);
+            OutsideClickHander(() => this.element, this.close.bind(this));
+        }
 
         return (
             <div class={style.actionMenu} ref={r => this.element = r}>

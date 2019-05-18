@@ -34,8 +34,9 @@ export default class Game extends Component<IProps, IState> {
     }
 
     public componentDidUpdate() {
-        console.log("componentDidUpdate");
         var containers = [].slice.call(document.getElementsByClassName("players")) as Element[];
+
+        dragula(containers).destroy();
         //@ts-ignore: copySortSource missing from typings
         dragula(containers, {
             copySortSource: true

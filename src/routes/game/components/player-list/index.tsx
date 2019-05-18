@@ -4,6 +4,7 @@ import { IPlayer } from "../Player";
 import * as style from "./style.css";
 import Data from "../../../../assets/db/players";
 import ColorPicker from "../../../../components/color-picker";
+import { OutsideClickHander } from "../../../../components/components";
 
 interface IProps {
     match: Match;
@@ -19,6 +20,8 @@ export interface IPlayerListEventArgs {
 }
 
 export default class PlayerList extends Component<IProps, IState> {
+    private element!: HTMLElement;
+
     public state: IState = {
         players: []
     }
@@ -43,6 +46,7 @@ export default class PlayerList extends Component<IProps, IState> {
         if (!args.event) return (<ul />);
 
         classes.push(style.show);
+        OutsideClickHander(() => this.element, this.close.bind(this));
 
         const selected = props.match.lines.SelectMany(s => s.players);
         const items = state.players.map(m => {
@@ -51,7 +55,7 @@ export default class PlayerList extends Component<IProps, IState> {
         });
 
         return (
-            <ul class={classes.join(" ")}>
+            <ul class={classes.join(" ")} ref={r => this.element = r}>
                 <li onClick={this.onRemoveSelectPlayer.bind(this)}>Remove - {args.selected!.name}</li>
                 <li><ColorPicker options={{ onClick: this.setColor.bind(this) }} /></li>
                 {items}
