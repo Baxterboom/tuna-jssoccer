@@ -1,6 +1,6 @@
 import { Component, h } from "preact";
 import Line, { ILine } from "./components/Line";
-import { IPlayer } from "./components/Player";
+import Player, { IPlayer } from "./components/Player";
 import PlayerList from "./components/player-list";
 import Scoreboard from "./components/Scoreboard";
 import Match from "./match";
@@ -37,11 +37,25 @@ export default class Game extends Component<IProps, IState> {
 
     public componentDidUpdate() {
         if (this.drake) this.drake.destroy();
-        const containers = [].slice.call(document.getElementsByClassName("players")) as Element[];
+        const containers = [].slice.call(document.querySelectorAll(".players")) as Element[];
 
         //@ts-ignore: copySortSource missing from typings
         this.drake = dragula(containers, {
-            copySortSource: true
+            copySortSource: true,
+        });
+
+        this.drake.on("drop", (element: Element, target: Element, source: Element, sibling: Element) => {
+
+            //@ts-ignore
+            const player = element._component.props.data as IPlayer;
+            //@ts-ignore
+            const lineFrom = $(source).closest(".line").prop("_component").props.data as ILine;
+            lineFrom.players.Remove(player);
+
+            //@ts-ignore
+            const lineTo = $(target).closest(".line").prop("_component").props.data as ILine;
+            lineTo.players.Insert(player, $(sibling).index());
+            console.log(this.state.match);
         });
     }
 
@@ -76,12 +90,7 @@ export default class Game extends Component<IProps, IState> {
                 const index = Math.floor(Math.random() * players.length);
                 const player = players[index];
                 players.Remove(player);
-                line.players[i] = {
-                    id: player.firstname + " " + player.lastname || index.toString(),
-                    name: player.firstname + " " + player.lastname || index.toString(),
-                    number: parseInt(player.nr || "0"),
-                    line
-                };
+                line.players[i] = Player.Map(player, { line });
             });
 
             this.state.match.lines.Add(line);

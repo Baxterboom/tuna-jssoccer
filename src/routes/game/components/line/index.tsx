@@ -62,7 +62,7 @@ export default class Line extends Component<IProps, IState> {
     let count = 0;
     const players = props.data.players.map(f => <Player key={count++} data={f} />);
     return (
-      <div class={style.line}>
+      <div class={["line", style.line].join(" ")}>
         <ActionMenu options={state.actionMenu} />
         <div class={["players", style.players].join(" ")}>{players}</div>
       </div>);

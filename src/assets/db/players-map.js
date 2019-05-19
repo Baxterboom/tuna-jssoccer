@@ -16,17 +16,20 @@ var data = JSON.stringify(require('./players.json'));
 var type = "";
 
 for (var key in map) {
-  type += `${map[key]}: string;`;
+  type += `${map[key]}?: string;`;
   data = data.replace(`"":"",`, ``)
     .replace(new RegExp(`"${key}":`, "g"), `${map[key]}:`);
 }
 
 const content = `
 export interface IPlayerData { ${type} }
+//@ts-ignore
+export const EmptyPlayerData = Object.freeze<IPlayerData>({});
 export default class Data { 
-  public static readonly All = ${data};
-  public static readonly Coaches = Data.All.Where(w => w.group != "Spelare");
-  public static readonly Players = Data.All.Where(w => w.group == "Spelare");
+  //@ts-ignore
+  public static readonly All = () : IPlayerData[] => ${data};
+  public static readonly Coaches = () => Data.All().Where(w => w.group != "Spelare");
+  public static readonly Players = () => Data.All().Where(w => w.group == "Spelare");
 }`;
 
 const fs = require('fs');

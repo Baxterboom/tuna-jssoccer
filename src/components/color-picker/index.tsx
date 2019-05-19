@@ -16,10 +16,11 @@ export default class ColorPicker extends Component<IProps, IState>  {
     public render(props: IProps, state: IState) {
         const colors = [
             "#808080",
-            "#e0e2e4",
-            "#c6bcb6",
-            "#96897f",
-            "#625750",
+            // "#e0e2e4",
+            // "#c6bcb6",
+            // "#96897f",
+            // "#625750",
+            "#845b41",
             "#484f4f"
         ].Select(s => <li style={{ background: s }} onClick={props.options.onClick.bind(this, s)}></li >);
 

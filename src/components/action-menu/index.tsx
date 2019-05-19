@@ -22,7 +22,7 @@ export interface IActionMenuItem<T = any> {
 }
 
 export default class ActionMenu extends Component<IProps, IState>{
-    private element!: HTMLElement;
+    private element!: Element;
 
     public close() {
         this.setState({ show: false });

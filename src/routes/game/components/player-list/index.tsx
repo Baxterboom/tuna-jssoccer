@@ -1,10 +1,10 @@
 import { Component, h } from "preact";
 import Match from "../../match";
-import { IPlayer } from "../Player";
+import Player, { IPlayer } from "../Player";
 import * as style from "./style.css";
-import Data from "../../../../assets/db/players";
 import ColorPicker from "../../../../components/color-picker";
 import { OutsideClickHander } from "../../../../components/components";
+import Data from "../../../../assets/db/players";
 
 interface IProps {
     match: Match;
@@ -20,7 +20,7 @@ export interface IPlayerListEventArgs {
 }
 
 export default class PlayerList extends Component<IProps, IState> {
-    private element!: HTMLElement;
+    private element!: Element;
 
     public state: IState = {
         players: []
@@ -28,14 +28,8 @@ export default class PlayerList extends Component<IProps, IState> {
 
     public componentWillMount() {
         const players = Data.Players()
-            .Select(s => {
-                const player: IPlayer = {
-                    id: s.firstname + " " + s.lastname,
-                    name: s.firstname + " " + s.lastname,
-                    number: parseInt(s.nr || "0")
-                };
-                return player;
-            }).OrderBy(o => o.name)
+            .Select(s => Player.Map(s))
+            .OrderBy(o => o.displayname)
         this.state.players.AddRange(players);
     }
 
@@ -51,12 +45,12 @@ export default class PlayerList extends Component<IProps, IState> {
         const selected = props.match.lines.SelectMany(s => s.players);
         const items = state.players.map(m => {
             const playerClasses = selected.Any(a => a.id == m.id) ? style.selected : "";
-            return (<li class={playerClasses} onClick={this.onSelectPlayer.bind(this, m)}>{m.name}</li>);
+            return (<li class={playerClasses} onClick={this.onSelectPlayer.bind(this, m)}>{m.displayname}</li>);
         });
 
         return (
             <ul class={classes.join(" ")} ref={r => this.element = r}>
-                <li onClick={this.onRemoveSelectPlayer.bind(this)}>Remove - {args.selected!.name}</li>
+                <li onClick={this.onRemoveSelectPlayer.bind(this)}>Remove - {args.selected!.displayname}</li>
                 <li><ColorPicker options={{ onClick: this.setColor.bind(this) }} /></li>
                 {items}
             </ul>

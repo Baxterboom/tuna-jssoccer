@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0e7752126b44ba5c1d0889f2490fe8a5",
+    "revision": "04a6ee982306764ba063c44e57ba7c21",
     "url": "assets\\db\\players-map.js"
   },
   {
@@ -32,15 +32,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "assets\\img\\tshirt.png"
   },
   {
-    "revision": "673213966e9132191bfa",
-    "url": "bundle.67321.js"
+    "revision": "a067fa3792093f6fd67d",
+    "url": "bundle.75395.css"
   },
   {
-    "revision": "673213966e9132191bfa",
-    "url": "bundle.b3cfc.css"
+    "revision": "a067fa3792093f6fd67d",
+    "url": "bundle.a067f.js"
   },
   {
-    "revision": "5959696655ad76fec8511a2004a4b6f4",
+    "revision": "8b9b6d56ce9c4da1a574a656a5ecdf7f",
     "url": "index.html"
   },
   {
@@ -48,35 +48,35 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "polyfills.71af2.js"
   },
   {
-    "revision": "d004c50385db4e3c203c",
-    "url": "route-game/index.tsx.chunk.2e80e.css"
+    "revision": "a11bfaf5d25dab901a9f",
+    "url": "route-game/index.tsx.chunk.3f6a8.css"
   },
   {
-    "revision": "d004c50385db4e3c203c",
-    "url": "route-game/index.tsx.chunk.d004c.js"
+    "revision": "a11bfaf5d25dab901a9f",
+    "url": "route-game/index.tsx.chunk.a11bf.js"
   },
   {
-    "revision": "944cad2c080d6189c488",
-    "url": "route-home/index.tsx.chunk.944ca.js"
+    "revision": "0c9b6fc2cc88e39d2897",
+    "url": "route-home/index.tsx.chunk.0c9b6.js"
   },
   {
-    "revision": "944cad2c080d6189c488",
-    "url": "route-home/index.tsx.chunk.f5249.css"
+    "revision": "0c9b6fc2cc88e39d2897",
+    "url": "route-home/index.tsx.chunk.1db39.css"
   },
   {
-    "revision": "92f9019176b9fea7aa22",
-    "url": "route-profile/index.tsx.chunk.530bf.css"
+    "revision": "46678f83ae106d03abd0",
+    "url": "route-profile/index.tsx.chunk.23f7d.css"
   },
   {
-    "revision": "92f9019176b9fea7aa22",
-    "url": "route-profile/index.tsx.chunk.92f90.js"
+    "revision": "46678f83ae106d03abd0",
+    "url": "route-profile/index.tsx.chunk.46678.js"
   },
   {
     "revision": "13b82ed03d648451c57be206f75f0216",
     "url": "sw-debug.js"
   },
   {
-    "revision": "256ed524e91e130895cb6531f068aa4b",
+    "revision": "940504f02056a2865b59a8b0c9abc485",
     "url": "sw-esm.js"
   },
   {
