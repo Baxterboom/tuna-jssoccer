@@ -37,7 +37,7 @@ export default class PlayerList extends Component<IProps, IState> {
         const args = props.match.playerListEventArgs;
         const classes = [style.playerList];
 
-        if (!args.event) return (<ul />);
+        if (!args.event) return (<ul class={classes.join(" ")} />);
 
         classes.push(style.show);
         OutsideClickHander(() => this.element, this.close.bind(this));

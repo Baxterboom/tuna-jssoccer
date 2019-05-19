@@ -22,6 +22,7 @@
 }
 
 .reload {
+	cursor: pointer;
 	position: absolute;
 	bottom: 10px;
 	background: gray;

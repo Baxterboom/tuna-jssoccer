@@ -38,7 +38,7 @@ export default class Player extends Component<IProps, IState> {
             <div class={[style.player].join(" ")} style={{ background: props.data.color }} onClick={this.onSelect.bind(this)} id={props.data.id}>
                 {/* <img class={style.image} src="assets/img/tshirt.png" alt="player" /> */}
                 <div class={style.number}>{props.data.number}</div>
-                <div class={style.text}>{this.shortName(props.data)}</div>
+                <div class={style.text}>{props.data.displayname}</div>
             </div>
         );
     }
@@ -53,10 +53,5 @@ export default class Player extends Component<IProps, IState> {
         };
 
         return target ? { ...result, ...target } : result;
-    }
-
-    private shortName(player: IPlayer) {
-        const last = player.lastname || "";
-        return `${player.firstname} ${last.charAt(0)}`
     }
 }

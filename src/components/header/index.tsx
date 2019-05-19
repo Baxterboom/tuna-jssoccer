@@ -9,7 +9,7 @@ export default class Header extends Component {
                 <h1>ÄFF - F12</h1>
                 <nav>
                     <Link activeClassName={style.active} href="/">Home</Link>
-                    <Link activeClassName={style.active} href="/game">Game</Link>
+                    <Link activeClassName={style.active} href="/game/1-2-3-1">Game</Link>
                     {/* <Link activeClassName={style.active} href="/profile">Me</Link>
                     <Link activeClassName={style.active} href="/profile/john">John</Link> */}
                 </nav>

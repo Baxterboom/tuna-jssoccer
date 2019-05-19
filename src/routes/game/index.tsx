@@ -32,7 +32,7 @@ export default class Game extends Component<IProps, IState> {
     }
 
     public componentDidMount() {
-        this.randomizeLineUp(this.props.lineup.split(","));
+        this.randomizeLineUp(this.props.lineup.split("-"));
     }
 
     public componentDidUpdate() {
@@ -59,6 +59,10 @@ export default class Game extends Component<IProps, IState> {
         });
     }
 
+    public componentWillUnmount() {
+        this.drake.destroy();
+    }
+
     public render(props: IProps, state: IState) {
         const lines = state.match.lines.map((f, i) => (<Line key={i} data={f} />));
         return (
@@ -68,7 +72,7 @@ export default class Game extends Component<IProps, IState> {
                 <PlayerList match={state.match} />
                 <img class={style.reload}
                     src="assets/img/refresh_48px.svg"
-                    onClick={this.randomizeLineUp.bind(this, props.lineup.split(","))}
+                    onClick={this.randomizeLineUp.bind(this, props.lineup.split("-"))}
                     title="New line up" />
             </div>
         );
