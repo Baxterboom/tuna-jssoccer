@@ -7,6 +7,7 @@ import Match from "./match";
 import * as style from "./style.css";
 import Data from "../../assets/db/players";
 import dragula, { Drake } from "dragula";
+import { route } from "preact-router";
 
 interface IProps {
     lineup: string;
@@ -23,16 +24,17 @@ export default class Game extends Component<IProps, IState> {
     public drake!: Drake;
 
     public state: IState = {
-        match: new Match(() => this.setState(this.state))
+        match: new Match(this.update)
     }
 
-    constructor() {
-        super();
-        this.state.match.lines = this.state.match.home.lines;
+    public update() {
+        this.setState(this.state, () => {
+            route(`/game/${this.state.match.toString()}`);
+        });
     }
 
     public componentDidMount() {
-        this.randomizeLineUp(this.props.lineup.split("-"));
+        this.randomizeLineUp(this.props.lineup.split(";"));
     }
 
     public componentDidUpdate() {
@@ -45,7 +47,6 @@ export default class Game extends Component<IProps, IState> {
         });
 
         this.drake.on("drop", (element: Element, target: Element, source: Element, sibling: Element) => {
-
             //@ts-ignore
             const player = element._component.props.data as IPlayer;
             //@ts-ignore
@@ -55,12 +56,11 @@ export default class Game extends Component<IProps, IState> {
             //@ts-ignore
             const lineTo = $(target).closest(".line").prop("_component").props.data as ILine;
             lineTo.players.Insert(player, $(sibling).index());
-            console.log(this.state.match);
         });
     }
 
     public componentWillUnmount() {
-        this.drake.destroy();
+        if (this.drake) this.drake.destroy();
     }
 
     public render(props: IProps, state: IState) {
@@ -72,18 +72,19 @@ export default class Game extends Component<IProps, IState> {
                 <PlayerList match={state.match} />
                 <img class={style.reload}
                     src="assets/img/refresh_48px.svg"
-                    onClick={this.randomizeLineUp.bind(this, props.lineup.split("-"))}
+                    onClick={this.randomizeLineUp.bind(this, props.lineup.split(";"))}
                     title="New line up" />
             </div>
         );
     }
 
-    private randomizeLineUp(lineup: any[]) {
+    private randomizeLineUp(lineup: string[]) {
+        console.log("rand", lineup, this.props.lineup);
         this.state.match.lines.Clear();
         const players = Data.Players();
 
         lineup.ForEach(f => {
-            let playerCount = parseInt(f);
+            let playerCount = f.split(",").Select(s => s[1]).Count();
             if (playerCount > players.length) playerCount = players.length;
             const line: ILine = {
                 match: this.state.match,
@@ -100,6 +101,6 @@ export default class Game extends Component<IProps, IState> {
             this.state.match.lines.Add(line);
         });
 
-        this.setState(this.state);
+        this.update();
     }
 }

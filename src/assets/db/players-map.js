@@ -1,6 +1,7 @@
 //run: node players-map.js
 
 var map = {
+  "MedlemsNr": "id",
   "ÅR": "year",
   "FÖRNAMN": "firstname",
   "EFTERNAMN": "lastname",

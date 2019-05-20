@@ -20,8 +20,8 @@ export default class Home extends Component<IProps, IState> {
             <ul class={style.home}>
                 <fieldset>
                     <legend>Lineup</legend>
-                    <li><a href="/game/1-2-3-1">7 players</a></li>
-                    <li><a href="/game/1-3-1-3-1">9 players</a></li>
+                    <li><a href="/game/0:0;0:0,0:0;0:0,0:0,0:0;0:0">7 players</a></li>
+                    <li><a href="/game/0:0;0:0,0:0,0:0;0:0,0:0,0:0,0:0;0:0">9 players</a></li>
                 </fieldset>
                 <fieldset>
                     <legend>Demo</legend>

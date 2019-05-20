@@ -52,9 +52,10 @@ export default class Timer extends Component<IProps, IState>  {
     }
 
     public render(props: IProps, state: IState) {
+        const time = new Date(0, 0, 0, 0, 0, 0, state.ticks).toTimeString().match(/(^[^\s]+)\s/);
         return (<div class={style.timer}>
             <div>
-                <span>{new Date(0, 0, 0, 0, 0, 0, state.ticks).toLocaleTimeString()}</span>
+                <span>{time![0]}</span>
             </div>
             <div>
                 <button onClick={this.toggle.bind(this)} title="toggle">{this.state.timer < 1 ? "Start" : "Pause"}</button>

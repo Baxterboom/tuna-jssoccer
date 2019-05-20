@@ -1,12 +1,11 @@
+import { createHashHistory } from "history";
 import { Component, h } from "preact";
 import { Route, Router, RouterOnChangeArgs } from "preact-router";
-import { createHashHistory } from "history";
 
+import Game from "../routes/game";
 import Home from "../routes/home";
 import Profile from "../routes/profile";
 import Header from "./header";
-import Game from "../routes/game";
-
 
 if ((module as any).hot) {
     // tslint:disable-next-line:no-var-requires
@@ -25,7 +24,7 @@ export default class App extends Component {
                 <Header />
                 <Router onChange={this.handleRoute} history={createHashHistory()}>
                     <Route path="/" component={Home} />
-                    <Route path="/game/" component={Game} lineup="1, 2, 3, 1" />
+                    <Route path="/game/" component={Game} lineup="0:0;0:0,0:0;0:0,0:0,0:0;0:0" />
                     <Route path="/game/:lineup" component={Game} />
                     <Route path="/profile/" component={Profile} user="me" />
                     <Route path="/profile/:user" component={Profile} />

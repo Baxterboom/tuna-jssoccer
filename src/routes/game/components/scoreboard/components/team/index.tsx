@@ -12,7 +12,6 @@ interface IState {
 export interface ITeam {
     id: any;
     name: string;
-    lines: ILine[];
     score: number;
 }
 
