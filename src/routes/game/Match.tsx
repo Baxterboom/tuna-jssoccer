@@ -1,7 +1,8 @@
 import { ILine } from "./components/Line";
-import { IPlayer } from "./components/Player";
+import Player, { IPlayer } from "./components/Player";
 import { IPlayerListEventArgs } from "./components/player-list";
 import { ITeam } from "./components/Scoreboard/components/team";
+import Data from "../../assets/db/players";
 
 export default class Match {
 
@@ -21,7 +22,7 @@ export default class Match {
   public toString() {
     const lines: string[] = [];
     this.lines.ForEach(l => {
-      const players = l.players.Select(p => `${p.id}:${p.score || 0}`).join(",");
+      const players = l.players.Select(p => `${p.id}:${p.goals || 0}`).join(",");
       lines.push(players);
     });
 
@@ -30,14 +31,20 @@ export default class Match {
 
   // tslint:disable-next-line: member-ordering
   public lineup(lineup: string, match: Match): ILine[] {
-    return lineup.split(";").Select<ILine>(l => {
+    const data = Data.Players();
+    const lines = lineup.split(";").Select<ILine>(l => {
+      const line: ILine = { match, players: [] };
       const players = l.split(",").Select<IPlayer>(p => {
-        const player = p.split(":");
-        const score = parseInt(player[1] || "0");
-        return { id: player[0], score };
+        const meta = p.split(":");
+        const goals = parseInt(meta[1] || "0");
+        const player = data.FirstOrDefault(f => f.id === meta[0]) || Player.Empty;
+        return Player.Map(player, { goals, line });
       });
 
-      return { match, players };
+      line.players.AddRange(players);
+      return line;
     });
+
+    return lines;
   }
 }

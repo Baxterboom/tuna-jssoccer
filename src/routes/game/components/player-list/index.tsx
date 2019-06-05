@@ -33,6 +33,8 @@ export default class PlayerList extends Component<IProps, IState> {
         this.state.players.AddRange(players);
     }
 
+
+
     public render(props: IProps, state: IState) {
         const args = props.match.playerListEventArgs;
         const classes = [style.playerList];
@@ -43,6 +45,7 @@ export default class PlayerList extends Component<IProps, IState> {
         OutsideClickHander(() => this.element, this.close.bind(this));
 
         const selected = props.match.lines.SelectMany(s => s.players);
+        const name = args.selected!.number + "|" + args.selected!.displayname;
         const items = state.players.map(m => {
             const playerClasses = selected.Any(a => a.id == m.id) ? style.selected : "";
             return (<li class={playerClasses} onClick={this.onSelectPlayer.bind(this, m)}>{m.displayname}</li>);
@@ -50,7 +53,7 @@ export default class PlayerList extends Component<IProps, IState> {
 
         return (
             <ul class={classes.join(" ")} ref={r => this.element = r}>
-                <li onClick={this.onRemoveSelectPlayer.bind(this)}>Remove - {args.selected!.displayname}</li>
+                <li><input type="text" placeholder="Enter name" value={name} onInput={this.setText.bind(this)} /><button onClick={this.onRemoveSelectPlayer.bind(this)}>Remove</button></li>
                 <li><ColorPicker options={{ onClick: this.setColor.bind(this) }} /></li>
                 {items}
             </ul>
@@ -61,6 +64,15 @@ export default class PlayerList extends Component<IProps, IState> {
         this.props.match.playerListEventArgs = {};
         this.props.match.update();
     }
+
+    private setText(e: any) {
+        //@ts-ignore
+        const values = e.target.value.split("|") as string[];
+        const args = this.props.match.playerListEventArgs;
+        args.selected!.number = values.length < 2 ? "" : values.FirstOrDefault();
+        args.selected!.displayname = values.LastOrDefault();
+        this.props.match.update();
+    };
 
     private setColor(color: string) {
         const args = this.props.match.playerListEventArgs;

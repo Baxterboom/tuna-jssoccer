@@ -1,16 +1,15 @@
+//use http://beautifytools.com/excel-to-json-converter.php to convert sportadmin xls to json
 //run: node players-map.js
 
 var map = {
   "MedlemsNr": "id",
   "ÅR": "year",
-  "FÖRNAMN": "firstname",
-  "EFTERNAMN": "lastname",
-  "GRUPPKOPPLING": "group",
-  "FOTO": "photo",
-  "TRÖJNR": "nr",
-  "TRÖJSTLK": "size",
+  "Förnamn": "firstname",
+  "Efternamn": "lastname",
+  "Gruppkoppling": "group",
+  "TröjNr": "nr",
   "NOT": "note",
-  "STATUS": "status"
+  "Status": "status"
 }
 
 var data = JSON.stringify(require('./players.json'));
@@ -18,7 +17,7 @@ var type = "";
 
 for (var key in map) {
   type += `${map[key]}?: string;`;
-  data = data.replace(`"":"",`, ``)
+  data = data.replace(/"\s*"\s*:\s*"\s*",?/g, ``)
     .replace(new RegExp(`"${key}":`, "g"), `${map[key]}:`);
 }
 

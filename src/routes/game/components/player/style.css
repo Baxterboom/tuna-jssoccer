@@ -5,13 +5,12 @@
 	position: relative;
 	background: grey;
 	color: white;
-	padding: 6px;
+	padding: 4px;
 	border-radius: 20px;
 	vertical-align: middle;
 	margin: 2px;
 	box-shadow: 2px 3px 8px 4px rgba(0, 0, 0, 0.17);
 	min-width: 20%;
-	max-width: 20%;
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
@@ -24,7 +23,6 @@
 
 .player .number {
 	display: inline-block;
-	margin-right: 5px;
 	color: #c1c1c1;
 	width: 25px;
 	text-align: center;
@@ -48,4 +46,5 @@
 .player .text {
 	display: inline-block;
 	vertical-align: bottom;
+	padding-right: 4px;
 }

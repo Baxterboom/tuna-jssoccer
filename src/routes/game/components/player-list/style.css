@@ -1,44 +1,63 @@
 .player-list {
-	position: absolute;
-	z-index: 1;
-	color: black;
-	background: white;
-	border: 1px;
-	list-style: none;
-	margin: 0;
-	padding: 5px;
-	border-radius: 5px;
-	min-width: 30%;
-	display: none;
-	overflow: auto;
-	box-shadow: 3px 7px 10px 9px rgba(0, 0, 0, 0.17);
-	top: 80px;
-	bottom: 20px;
-	left: 10px;
-	min-width: 20%;
+  position: absolute;
+  z-index: 1;
+  color: black;
+  background: white;
+  border: 1px;
+  list-style: none;
+  margin: 0;
+  padding: 5px;
+  border-radius: 5px;
+  min-width: 30%;
+  display: none;
+  overflow: auto;
+  box-shadow: 3px 7px 10px 9px rgba(0, 0, 0, 0.17);
+  top: 80px;
+  bottom: 20px;
+  left: 10px;
+  min-width: 20%;
 }
 
 .player-list.show {
-	display: block;
-	transition: all 0.1s ease;
+  display: block;
+  transition: all 0.1s ease;
 }
 
 .player-list .selected {
-	opacity: 0.2;
+  opacity: 0.2;
 }
 
-.player-list li:first-child {
-	color: red;
-}
+
 
 .player-list li {
-	cursor: pointer;
-	padding: 10px;
-	border-bottom: 1px dashed silver;
+  cursor: pointer;
+  padding: 10px;
+  border-bottom: 1px dashed silver;
 }
 
 .player-list li:hover {
-	color: white;
-	background-color: silver;
-	transition: background-color 0.5s ease;
+  color: white;
+  background-color: silver;
+  transition: background-color 0.5s ease;
+}
+
+.player-list li:first-child {
+
+  background: darkgray;
+}
+
+input {
+  width: 80%;
+  height: 100%;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+button {
+  width: 20%;
+  padding: 11px;
+  color: darkred;
+  font-size: 16px;
+  font-weight: bold;
 }

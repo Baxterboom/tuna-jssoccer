@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "04a6ee982306764ba063c44e57ba7c21",
+    "revision": "535e5a3ec10be4cefabc15ebc98a836e",
     "url": "assets\\db\\players-map.js"
   },
   {
@@ -32,15 +32,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "assets\\img\\tshirt.png"
   },
   {
-    "revision": "8d003dc7e9afece437fe",
+    "revision": "d8f000ef22080dc531cc",
     "url": "bundle.75395.css"
   },
   {
-    "revision": "8d003dc7e9afece437fe",
-    "url": "bundle.8d003.js"
+    "revision": "d8f000ef22080dc531cc",
+    "url": "bundle.d8f00.js"
   },
   {
-    "revision": "cf3686718bbe4feab5ece05739a00be1",
+    "revision": "95da74c3e7cc5f07000cb8284dbb7ca6",
     "url": "index.html"
   },
   {
@@ -48,20 +48,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "polyfills.71af2.js"
   },
   {
-    "revision": "109b6337c51485c5f0a5",
-    "url": "route-game/index.tsx.chunk.109b6.js"
+    "revision": "ebb13043f6227fa24ea0",
+    "url": "route-game/index.tsx.chunk.ebb13.js"
   },
   {
-    "revision": "109b6337c51485c5f0a5",
-    "url": "route-game/index.tsx.chunk.15deb.css"
+    "revision": "ebb13043f6227fa24ea0",
+    "url": "route-game/index.tsx.chunk.f2719.css"
   },
   {
-    "revision": "255cfbe600fddf119a3d",
-    "url": "route-home/index.tsx.chunk.255cf.js"
+    "revision": "254d666676be048acf47",
+    "url": "route-home/index.tsx.chunk.254d6.js"
   },
   {
-    "revision": "255cfbe600fddf119a3d",
-    "url": "route-home/index.tsx.chunk.fb349.css"
+    "revision": "254d666676be048acf47",
+    "url": "route-home/index.tsx.chunk.a9d66.css"
   },
   {
     "revision": "46678f83ae106d03abd0",
@@ -76,7 +76,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "sw-debug.js"
   },
   {
-    "revision": "15658818226efe5757db705ae9b70566",
+    "revision": "8815f1c6baaa13481c91e0ab6c7b2467",
     "url": "sw-esm.js"
   },
   {

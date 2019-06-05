@@ -18,12 +18,11 @@ export interface IPlayer {
     line?: ILine;
     color?: string;
     number?: string;
-    score?: number;
+    goals?: number;
 }
 
 export default class Player extends Component<IProps, IState> {
-    //@ts-ignore
-    public static readonly Empty = Object.freeze<IPlayer>({ id: 0, firstname: "?" });
+    public static get Empty(): IPlayer { return { id: -1, firstname: "?", lastname: "?", number: "?" } };
 
     public onSelect(e: MouseEvent) {
         const match = this.props.data.line!.match;
@@ -54,7 +53,13 @@ export default class Player extends Component<IProps, IState> {
             return hash;
         }
 
-        source.id = hash([source.nr || "?", source.firstname || "?", source.lastname || "?",].join("#")).toString();
+        function guid(): any {
+            const seg = () => (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+            return (seg() + seg() + "-" + seg() + "-4" + seg().substr(0, 3) + "-" + seg() + "-" + seg() + seg() + seg()).toLowerCase();
+        }
+
+        source.id = source.id || hash([source.nr || "?", source.firstname || "?", source.lastname || "?",].join("#")).toString();
+        if (source.id == "59286199") source.id = guid();
 
         const result: IPlayer = {
             id: source.id,
