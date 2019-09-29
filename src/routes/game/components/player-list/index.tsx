@@ -33,8 +33,6 @@ export default class PlayerList extends Component<IProps, IState> {
         this.state.players.AddRange(players);
     }
 
-
-
     public render(props: IProps, state: IState) {
         const args = props.match.playerListEventArgs;
         const classes = [style.playerList];

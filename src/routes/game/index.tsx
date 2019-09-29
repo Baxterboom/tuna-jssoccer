@@ -67,14 +67,23 @@ export default class Game extends Component<IProps, IState> {
         return (
             <div class={[style.main].join(" ")}>
                 {/* <Scoreboard match={state.match} /> */}
+                <div id="print-sheet" class={style.printSheet}>{this.state.match.print()}</div>
                 <div class={[style.pitch].join(" ")}>{lines}</div>
                 <PlayerList match={state.match} />
-                <img class={style.reload}
+                <img class={style.btnReload}
                     src="assets/img/refresh_48px.svg"
                     onClick={this.randomizeLineUp.bind(this)}
                     title="New line up" />
+                <img class={style.btnPrint}
+                    src="assets/img/print.svg"
+                    onClick={this.print.bind(this)}
+                    title="Print" />
             </div>
         );
+    }
+
+    private print() {
+        $("#print-sheet").toggle();
     }
 
     private randomizeLineUp() {

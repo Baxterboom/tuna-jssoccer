@@ -16,7 +16,7 @@ export default class Match {
     // console.log(l);
     // this.lines = Match.lineup(l, this);
     // console.log(this.lines)
-    // console.log(this.toString(), this.toString() == l);
+    //console.log(this.toString());
   }
 
   public toString() {
@@ -27,6 +27,17 @@ export default class Match {
     });
 
     return lines.join(";")
+  }
+
+  public print() {
+    const lines: string[] = [];
+    this.lines.ForEach(l => {
+      // const players = l.players.Select(p => `${p.number} - ${p.displayname} (${p.goals || 0})`).join(", ");
+      const players = l.players.Select(p => `${p.displayname}`).join(", ");
+      lines.push(players);
+    });
+
+    return "(G) " + lines.join("\n")
   }
 
   // tslint:disable-next-line: member-ordering
