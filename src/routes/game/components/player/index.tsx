@@ -18,11 +18,11 @@ export interface IPlayer {
     line?: ILine;
     color?: string;
     number?: string;
-    goals?: number;
+    goals: number;
 }
 
 export default class Player extends Component<IProps, IState> {
-    public static get Empty(): IPlayer { return { id: -1, firstname: "?", lastname: "?", number: "?" } };
+    public static get Empty(): IPlayer { return { id: -1, firstname: "?", lastname: "?", number: "?", goals: 0 } };
 
     public onSelect(e: MouseEvent) {
         const match = this.props.data.line!.match;
@@ -34,11 +34,14 @@ export default class Player extends Component<IProps, IState> {
     }
 
     public render(props: IProps, state: IState) {
+        const data = props.data;
+        const goals = data.goals! > 0 ? (<div class={style.goals}>{data.goals}</div>) : ("");
         return (
-            <div class={[style.player].join(" ")} style={{ background: props.data.color }} onClick={this.onSelect.bind(this)} id={props.data.id}>
+            <div class={[style.player].join(" ")} style={{ background: data.color }} onClick={this.onSelect.bind(this)} id={data.id}>
                 {/* <img class={style.image} src="assets/img/tshirt.png" alt="player" /> */}
-                <div class={style.number}>{props.data.number}</div>
-                <div class={style.text}>{props.data.displayname}</div>
+                <div class={style.number}>{data.number}</div>
+                <div class={style.text}>{data.displayname}</div>
+                {goals}
             </div>
         );
     }
@@ -63,6 +66,7 @@ export default class Player extends Component<IProps, IState> {
 
         const result: IPlayer = {
             id: source.id,
+            goals: 0,
             number: source.nr || "?",
             firstname: source.firstname || "?",
             lastname: source.lastname,

@@ -28,23 +28,22 @@
 	text-align: center;
 }
 
-/* 
-.player .number:after {
-	content: "";
-	position: absolute;
-	opacity: 0.5;
-	top: 4px;
-	left: 4px;
-	z-index: 1;
-	display: block;
-	border-radius: 15px;
-	width: 40px;
-	height: 30px;
-	background: white;
-} */
-
 .player .text {
 	display: inline-block;
 	vertical-align: bottom;
 	padding-right: 4px;
+}
+
+.goals {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 6px 2px;
+	width: 24px;
+	font-size: 10px;
+	text-align: center;
+	/* background: linear-gradient(45deg, #4caf50, #08800d); */
+	background: #525252;
+	border-left: 1px solid #a5a1a1;
+	box-shadow: -9px 0 15px 2px #585858;
 }

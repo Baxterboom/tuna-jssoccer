@@ -6,8 +6,8 @@ import Data from "../../assets/db/players";
 
 export default class Match {
 
-  public home: ITeam = { id: 0, name: "home", score: 0 };
-  public guest: ITeam = { id: 0, name: "guest", score: 0 };
+  public home: ITeam = { id: 0, name: "ÄFF", score: 0 };
+  public guest: ITeam = { id: 0, name: "GUEST", score: 0 };
   public playerListEventArgs: IPlayerListEventArgs = {};
   public lines: ILine[] = [];
 
@@ -31,13 +31,22 @@ export default class Match {
 
   public print() {
     const lines: string[] = [];
+
     this.lines.ForEach(l => {
-      // const players = l.players.Select(p => `${p.number} - ${p.displayname} (${p.goals || 0})`).join(", ");
-      const players = l.players.Select(p => `${p.displayname}`).join(", ");
+      const players = l.players.Select(p => {
+        const goals = p.goals > 0 ? ` (${p.goals || 0})` : ``;
+        return `${p.displayname}${goals}`;
+      }).join(", ");
       lines.push(players);
     });
 
-    return "(G) " + lines.join("\n")
+    return lines.Select((s, i) => {
+      if (i == 1) return `G: ${s}`;
+      if (i == 2) return `D: ${s}`;
+      return (i == lines.length - 1) ? `O: ${s}` : `M: ${s}`;
+    })
+    .Insert(`${this.home.name}: ${this.home.score} - ${this.guest.name}: ${this.guest.score}`, 0)
+    .join("\n")
   }
 
   // tslint:disable-next-line: member-ordering

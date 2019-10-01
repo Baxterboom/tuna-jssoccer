@@ -46,16 +46,34 @@ export default class PlayerList extends Component<IProps, IState> {
         const name = args.selected!.number + "|" + args.selected!.displayname;
         const items = state.players.map(m => {
             const playerClasses = selected.Any(a => a.id == m.id) ? style.selected : "";
-            return (<li class={playerClasses} onClick={this.onSelectPlayer.bind(this, m)}>{m.displayname}</li>);
+            return (
+                <li class={playerClasses} onClick={this.onSelectPlayer.bind(this, m)}>
+                    <span>{m.displayname}</span>
+                </li>);
         });
 
         return (
             <ul class={classes.join(" ")} ref={r => this.element = r}>
-                <li><input type="text" placeholder="Enter name" value={name} onInput={this.setText.bind(this)} /><button onClick={this.onRemoveSelectPlayer.bind(this)}>Remove</button></li>
-                <li><ColorPicker options={{ onClick: this.setColor.bind(this) }} /></li>
+                <li class={style.player}>
+                    <div class={style.playerName}>
+                        <input type="text" placeholder="Enter name" value={name} onInput={this.setText.bind(this)} />
+                        <button onClick={this.onRemoveSelectPlayer.bind(this)}>Remove</button>
+                    </div>
+                    <div class={style.playerGoals}>
+                        <span>Score: {args.selected!.goals || 0}</span>
+                        <button onClick={this.score.bind(this, args.selected!, -1)}>-</button>
+                        <button onClick={this.score.bind(this, args.selected!, +1)}>+</button>
+                    </div>
+                </li>
+                <li class={style.playerColor}><ColorPicker options={{ onClick: this.setColor.bind(this) }} /></li>
                 {items}
             </ul>
         );
+    }
+
+    private score(player: IPlayer, step: number) {
+        player.goals! += step;
+        this.props.match.update();
     }
 
     private close() {

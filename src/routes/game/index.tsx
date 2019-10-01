@@ -2,7 +2,6 @@ import { Component, h } from "preact";
 import Line, { ILine } from "./components/Line";
 import Player, { IPlayer } from "./components/Player";
 import PlayerList from "./components/player-list";
-import Scoreboard from "./components/Scoreboard";
 import Match from "./match";
 import * as style from "./style.css";
 import Data from "../../assets/db/players";
@@ -102,7 +101,7 @@ export default class Game extends Component<IProps, IState> {
                 const index = Math.floor(Math.random() * players.length);
                 const player = players[index];
                 players.Remove(player);
-                line.players[i] = Player.Map(player, { line });
+                line.players[i] = Player.Map(player, { line, goals: 0 });
             });
 
             this.state.match.lines.Add(line);

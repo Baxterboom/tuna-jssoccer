@@ -1,4 +1,12 @@
 .scoreboard {
   color: white;
   text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.scoreboard>div {
+  flex-wrap: wrap;
+  background: #3a483b;
+  width: 100%;
 }

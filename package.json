@@ -62,7 +62,7 @@
     "preact": "^8.3.1",
     "preact-compat": "^3.18.4",
     "preact-router": "^2.6.1",
-    "tuna-jslinq": "1.0.5"
+    "tuna-jslinq": "^1.0.7"
   },
   "peerDependencies": {
     "prettier": ">1.0.0",

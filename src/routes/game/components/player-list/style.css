@@ -45,12 +45,37 @@
   background: darkgray;
 }
 
-input {
-  width: 80%;
-  height: 100%;
-  padding: 10px;
-  font-size: 16px;
+.player {
+  color: black !important;
+  background: inherit !important;
   font-weight: bold;
+}
+
+.player-name input {
+  border: 0;
+  width: 60%;
+  height: 100%;
+  padding: 10px 0;
+  font-weight: bold;
+  font-family: 'Orbitron', monospace;
+}
+
+.player-name button {
+  width: 40%
+}
+
+.player-color {
+  content: "";
+}
+
+.player-goals {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.player-goals span {
+  flex-grow: 2;
 }
 
 button {

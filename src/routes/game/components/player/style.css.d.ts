@@ -2,3 +2,4 @@
 export const player: string;
 export const number: string;
 export const text: string;
+export const goals: string;

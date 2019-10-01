@@ -1,11 +1,11 @@
 {
   "name": "tuna-jssoccer",
   "short_name": "jss",
-  "start_url": "/",
+  "start_url": "https://baxterboom.github.io/tuna-jssoccer/build/index.html",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#fff",
-  "theme_color": "#673ab8",
+  "theme_color": "#ffc107",
   "icons": [{
       "src": "assets/icons/android-chrome-192x192.png",
       "type": "image/png",

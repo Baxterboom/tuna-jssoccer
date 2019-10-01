@@ -27,9 +27,8 @@ export default class Team extends Component<IProps, IState> {
     public render(props: IProps, state: IState) {
         return (
             <div class={style.main}>
-                <div>{props.data.name.toUpperCase()}</div>
+                <div>{props.data.name.toUpperCase()}: {props.data.score}</div>
                 <div>
-                    {props.data.score}
                     <button class={[].join(" ")} onClick={this.set.bind(this, props.data, +1)} title="increase score">+</button>
                     <button class={[].join(" ")} onClick={this.set.bind(this, props.data, -1)} title="decrease score">-</button>
                 </div>
