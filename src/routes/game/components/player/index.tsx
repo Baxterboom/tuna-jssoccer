@@ -12,13 +12,13 @@ interface IState {
 
 export interface IPlayer {
     id?: any;
+    color?: string;
+    goals: number;
     firstname?: string;
     lastname?: string;
     displayname?: string;
     line?: ILine;
-    color?: string;
     number?: string;
-    goals: number;
 }
 
 export default class Player extends Component<IProps, IState> {

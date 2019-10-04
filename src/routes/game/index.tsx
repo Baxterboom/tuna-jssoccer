@@ -7,6 +7,7 @@ import * as style from "./style.css";
 import Data from "../../assets/db/players";
 import dragula, { Drake } from "dragula";
 import { route } from "preact-router";
+import { seedDecode } from "../../components/components";
 
 interface IProps {
     lineup: string;
@@ -54,6 +55,7 @@ export default class Game extends Component<IProps, IState> {
             lineFrom.players.Remove(player);
             lineTo.players.Insert(player, $(sibling).index() - 1 || 0);
             player.line = lineTo;
+            this.state.match.update();
         });
     }
 
@@ -89,8 +91,8 @@ export default class Game extends Component<IProps, IState> {
         this.state.match.lines.Clear();
         const players = Data.Players();
 
-        this.props.lineup.split(";").ForEach(f => {
-            let playerCount = f.split(",").Select(s => s[1]).Count();
+        seedDecode(this.props.lineup).split(";").ForEach(f => {
+            let playerCount = f.split("|").Select(s => s[1]).Count();
             if (playerCount > players.length) playerCount = players.length;
             const line: ILine = {
                 match: this.state.match,

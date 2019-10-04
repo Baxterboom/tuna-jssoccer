@@ -28,15 +28,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "assets\\img\\tshirt.png"
   },
   {
-    "revision": "1f66621d029154139398023f2a45d589",
-    "url": "bundle.13075.esm.js"
-  },
-  {
-    "revision": "52745bd4f832918b487e",
+    "revision": "3bee0dbf25f46ec41bf4",
     "url": "bundle.41f39.css"
   },
   {
-    "revision": "bd4c78c2d408ac27a623f109b0806243",
+    "revision": "fc02e3b933a1c1453ea85389beb01f25",
+    "url": "bundle.a3f91.esm.js"
+  },
+  {
+    "revision": "d0e8812e0ea06adc82acc6d34f7ddea0",
     "url": "index.html"
   },
   {
@@ -44,23 +44,35 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "polyfills.621d0.esm.js"
   },
   {
-    "revision": "988e03abd109c2d811ce",
-    "url": "route-game/index.tsx.chunk.231e1.css"
+    "revision": "503fb3f077abf43acd9e81e088806b72",
+    "url": "route-game/index.tsx.chunk.316df.esm.js"
   },
   {
-    "revision": "9ebeb37c033eed6c3b1478cdf39f5fb2",
-    "url": "route-game/index.tsx.chunk.fc577.esm.js"
+    "revision": "f206969ac1598d94e619",
+    "url": "route-game/index.tsx.chunk.b3759.css"
   },
   {
-    "revision": "1e57600757e5a811460965cc1a15d161",
-    "url": "route-home/index.tsx.chunk.080be.esm.js"
+    "revision": "ab694b1337d950cd57926516e1e4d227",
+    "url": "route-game/index.tsx.chunk.bed9b.css"
   },
   {
-    "revision": "8e1617bbb5b5a7f0a2ca",
+    "revision": "bda3cdbade935608849a",
+    "url": "route-game/index.tsx~route-home/index.tsx.chunk.48477.css"
+  },
+  {
+    "revision": "9dffd49a17051dbff00c",
+    "url": "route-home/index.tsx.chunk.71d60.css"
+  },
+  {
+    "revision": "c4998cc8ea2793a5d6454bca62f78575",
+    "url": "route-home/index.tsx.chunk.91faf.esm.js"
+  },
+  {
+    "revision": "f1ed58984a085e136f75978856b76cca",
     "url": "route-home/index.tsx.chunk.923f4.css"
   },
   {
-    "revision": "46678f83ae106d03abd0",
+    "revision": "4dda4570033c3bc7ec51",
     "url": "route-profile/index.tsx.chunk.23f7d.css"
   },
   {
