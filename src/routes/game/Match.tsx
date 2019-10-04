@@ -12,7 +12,7 @@ export default class Match {
     public static PlayerSeed = Object.freeze<IPlayerSeed>({ id: null, goals: 0, color: "" });
 
     public home: ITeam = { id: 0, name: "ÄFF", score: 0 };
-    public guest: ITeam = { id: 0, name: "GUEST", score: 0 };
+    public guest: ITeam = { id: 0, name: "OTHER", score: 0 };
     public playerListEventArgs: IPlayerListEventArgs = {};
     public lines: ILine[] = [];
 

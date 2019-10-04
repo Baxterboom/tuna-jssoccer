@@ -7,6 +7,6 @@
 
 .scoreboard>div {
   flex-wrap: wrap;
-  background: #3a483b;
+  /* background: #3a483b; */
   width: 100%;
 }

@@ -36,14 +36,14 @@
 
 .goals {
 	position: absolute;
-	top: 0;
-	right: 0;
-	padding: 6px 2px;
-	width: 24px;
+	top: 2px;
+	right: 3px;
+	padding: 3px 2px;
+	width: 40px;
 	font-size: 10px;
 	text-align: center;
-	/* background: linear-gradient(45deg, #4caf50, #08800d); */
 	background: #525252;
-	border-left: 1px solid #a5a1a1;
+	border: 1px solid #a5a1a1;
 	box-shadow: -9px 0 15px 2px #585858;
+	transform: rotate(-62deg);
 }

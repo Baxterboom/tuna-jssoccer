@@ -1,7 +1,7 @@
 import { Component, h } from "preact";
 import { ILine } from "../Line";
 import * as style from "./style.css";
-import { IPlayerData, EmptyPlayerData } from "../../../../assets/db/players";
+import { IPlayerData } from "../../../../assets/db/players";
 
 interface IProps {
     data: IPlayer;

@@ -8,6 +8,7 @@ import Data from "../../assets/db/players";
 import dragula, { Drake } from "dragula";
 import { route } from "preact-router";
 import { seedDecode } from "../../components/components";
+import Scoreboard from "./components/Scoreboard";
 
 interface IProps {
     lineup: string;
@@ -55,7 +56,6 @@ export default class Game extends Component<IProps, IState> {
             lineFrom.players.Remove(player);
             lineTo.players.Insert(player, $(sibling).index() - 1 || 0);
             player.line = lineTo;
-            this.state.match.update();
         });
     }
 
@@ -67,7 +67,7 @@ export default class Game extends Component<IProps, IState> {
         const lines = state.match.lines.map((f, i) => (<Line key={i} data={f} />));
         return (
             <div class={[style.main].join(" ")}>
-                {/* <Scoreboard match={state.match} /> */}
+                <Scoreboard match={state.match} />
                 <div id="print-sheet" class={style.printSheet}>{this.state.match.print()}</div>
                 <div class={[style.pitch].join(" ")}>{lines}</div>
                 <PlayerList match={state.match} />

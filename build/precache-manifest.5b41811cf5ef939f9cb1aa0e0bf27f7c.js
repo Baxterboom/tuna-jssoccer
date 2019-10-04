@@ -32,15 +32,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "assets\\img\\tshirt.png"
   },
   {
-    "revision": "3bee0dbf25f46ec41bf4",
-    "url": "bundle.3bee0.js"
-  },
-  {
-    "revision": "3bee0dbf25f46ec41bf4",
+    "revision": "de848103c8f6f99b3397",
     "url": "bundle.41f39.css"
   },
   {
-    "revision": "d0e8812e0ea06adc82acc6d34f7ddea0",
+    "revision": "de848103c8f6f99b3397",
+    "url": "bundle.de848.js"
+  },
+  {
+    "revision": "0c988351e03ba17a84170f8f53087076",
     "url": "index.html"
   },
   {
@@ -48,36 +48,36 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "polyfills.5fcc9.js"
   },
   {
-    "revision": "f206969ac1598d94e619",
+    "revision": "65b619bb62108e12b9c10342d0598779",
+    "url": "route-game/index.tsx.chunk.a7fe0.css"
+  },
+  {
+    "revision": "ba9c68a07ba999629c58",
     "url": "route-game/index.tsx.chunk.b3759.css"
   },
   {
-    "revision": "ab694b1337d950cd57926516e1e4d227",
-    "url": "route-game/index.tsx.chunk.bed9b.css"
+    "revision": "ba9c68a07ba999629c58",
+    "url": "route-game/index.tsx.chunk.ba9c6.js"
   },
   {
-    "revision": "f206969ac1598d94e619",
-    "url": "route-game/index.tsx.chunk.f2069.js"
+    "revision": "60a6c8e8ddf7459b1dab",
+    "url": "route-game/index.tsx~route-home/index.tsx.chunk.60a6c.js"
   },
   {
-    "revision": "bda3cdbade935608849a",
-    "url": "route-game/index.tsx~route-home/index.tsx.chunk.48477.css"
+    "revision": "60a6c8e8ddf7459b1dab",
+    "url": "route-game/index.tsx~route-home/index.tsx.chunk.d82ab.css"
   },
   {
-    "revision": "bda3cdbade935608849a",
-    "url": "route-game/index.tsx~route-home/index.tsx.chunk.bda3c.js"
+    "revision": "fe9eb4cde1f2327ec288",
+    "url": "route-home/index.tsx.chunk.6653e.css"
   },
   {
-    "revision": "9dffd49a17051dbff00c",
-    "url": "route-home/index.tsx.chunk.71d60.css"
+    "revision": "dfe6e4e8e1625abca5b11e958b18e694",
+    "url": "route-home/index.tsx.chunk.6f5e9.css"
   },
   {
-    "revision": "f1ed58984a085e136f75978856b76cca",
-    "url": "route-home/index.tsx.chunk.923f4.css"
-  },
-  {
-    "revision": "9dffd49a17051dbff00c",
-    "url": "route-home/index.tsx.chunk.9dffd.js"
+    "revision": "fe9eb4cde1f2327ec288",
+    "url": "route-home/index.tsx.chunk.fe9eb.js"
   },
   {
     "revision": "4dda4570033c3bc7ec51",
@@ -92,7 +92,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "sw-debug.js"
   },
   {
-    "revision": "9b360063a659eba0702e9ced87dd1f77",
+    "revision": "bbf13e57d1fa09f63d6cb0a0bc32eda4",
     "url": "sw-esm.js"
   },
   {

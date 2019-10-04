@@ -3,9 +3,9 @@
   padding: 10px;
   display: flex;
   justify-content: space-between;
-  border: 1px double white;
-  background: black;
-  border-radius: 10px;
+  /* border: 1px double white; */
+  /* background: black; */
+  /* border-radius: 10px; */
   align-items: baseline;
 }
 
@@ -13,7 +13,7 @@
   color: white;
   background: none;
   margin-left: 10px;
-  width: 50px;
+  min-width: 24px;
   padding: 5px;
   border-radius: 5px;
 }
