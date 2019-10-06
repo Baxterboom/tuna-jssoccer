@@ -43,7 +43,7 @@ export default class PlayerList extends Component<IProps, IState> {
         OutsideClickHander(() => this.element, this.close.bind(this));
 
         const selected = props.match.lines.SelectMany(s => s.players);
-        const name = args.selected!.number + "|" + args.selected!.displayname;
+        const name = (args.selected!.number || "?") + " # " + (args.selected!.displayname || "?");
         const items = state.players.map(m => {
             const playerClasses = selected.Any(a => a.id == m.id) ? style.selected : "";
             return (
@@ -56,7 +56,7 @@ export default class PlayerList extends Component<IProps, IState> {
             <ul class={classes.join(" ")} ref={r => this.element = r}>
                 <li class={style.player}>
                     <div class={style.playerName}>
-                        <input type="text" placeholder="Enter name" value={name} onInput={this.setText.bind(this)} />
+                        <input type="text" placeholder="Enter name" value={name} onChange={this.setText.bind(this)} />
                         <button onClick={this.onRemoveSelectPlayer.bind(this)}>Remove</button>
                     </div>
                     <div class={style.playerGoals}>
@@ -72,6 +72,7 @@ export default class PlayerList extends Component<IProps, IState> {
     }
 
     private score(player: IPlayer, step: number) {
+        if (step < 0 && player.goals == 0) return;
         player.goals! += step;
         this.props.match.update();
     }
@@ -83,18 +84,19 @@ export default class PlayerList extends Component<IProps, IState> {
 
     private setText(e: any) {
         //@ts-ignore
-        const values = e.target.value.split("|") as string[];
+        const values = e.target.value.split(" # ") as string[];
         const args = this.props.match.playerListEventArgs;
         args.selected!.number = values.length < 2 ? "" : values.FirstOrDefault();
         args.selected!.displayname = values.LastOrDefault();
         this.props.match.update();
     };
 
-    private setColor(color: string) {
+    private setColor(color: number) {
         const args = this.props.match.playerListEventArgs;
         args.selected!.color = color;
         this.props.match.update();
         this.close();
+        console.log(args.selected);
     }
 
     private onSelectPlayer(player: IPlayer) {

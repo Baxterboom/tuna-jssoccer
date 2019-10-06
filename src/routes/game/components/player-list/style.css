@@ -1,6 +1,6 @@
 .player-list {
   position: absolute;
-  z-index: 1;
+  z-index: 50;
   color: black;
   background: white;
   border: 1px;
@@ -12,7 +12,7 @@
   display: none;
   overflow: auto;
   box-shadow: 3px 7px 10px 9px rgba(0, 0, 0, 0.17);
-  top: 80px;
+  top: 20px;
   bottom: 20px;
   left: 10px;
   min-width: 20%;

@@ -7,7 +7,7 @@ import * as style from "./style.css";
 import Data from "../../assets/db/players";
 import dragula, { Drake } from "dragula";
 import { route } from "preact-router";
-import { seedDecode } from "../../components/components";
+import { seedDecode, OutsideClickHander } from "../../components/components";
 import Scoreboard from "./components/Scoreboard";
 
 interface IProps {
@@ -67,10 +67,10 @@ export default class Game extends Component<IProps, IState> {
         const lines = state.match.lines.map((f, i) => (<Line key={i} data={f} />));
         return (
             <div class={[style.main].join(" ")}>
-                <Scoreboard match={state.match} />
                 <div id="print-sheet" class={style.printSheet}>{this.state.match.print()}</div>
                 <div class={[style.pitch].join(" ")}>{lines}</div>
                 <PlayerList match={state.match} />
+                <Scoreboard match={state.match} />
                 <img class={style.btnReload}
                     src="assets/img/refresh_48px.svg"
                     onClick={this.randomizeLineUp.bind(this)}
@@ -84,7 +84,9 @@ export default class Game extends Component<IProps, IState> {
     }
 
     private print() {
-        $("#print-sheet").toggle();
+        const target = $("#print-sheet").toggle()
+        if (target.is(":hidden")) return;
+        OutsideClickHander(() => target.get(0), () => target.hide());
     }
 
     private randomizeLineUp() {
@@ -103,7 +105,7 @@ export default class Game extends Component<IProps, IState> {
                 const index = Math.floor(Math.random() * players.length);
                 const player = players[index];
                 players.Remove(player);
-                line.players[i] = Player.Map(player, { line, goals: 0 });
+                line.players[i] = Player.Map(player, { line, goals: 0, color: 0 });
             });
 
             this.state.match.lines.Add(line);

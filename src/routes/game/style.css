@@ -24,7 +24,7 @@
 .btn-reload {
     cursor: pointer;
     position: absolute;
-    bottom: 10px;
+    bottom: 80px;
     background: gray;
     border-radius: 25px;
     right: 10px;
@@ -34,7 +34,7 @@
 .btn-print {
     cursor: pointer;
     position: absolute;
-    bottom: 80px;
+    bottom: 160px;
     background: gray;
     border-radius: 25px;
     right: 10px;

@@ -2,6 +2,7 @@ import { Component, h } from "preact";
 import { ILine } from "../Line";
 import * as style from "./style.css";
 import { IPlayerData } from "../../../../assets/db/players";
+import { Colors } from "../../../../components/color-picker";
 
 interface IProps {
     data: IPlayer;
@@ -12,7 +13,7 @@ interface IState {
 
 export interface IPlayer {
     id?: any;
-    color?: string;
+    color: number;
     goals: number;
     firstname?: string;
     lastname?: string;
@@ -22,7 +23,7 @@ export interface IPlayer {
 }
 
 export default class Player extends Component<IProps, IState> {
-    public static get Empty(): IPlayer { return { id: -1, firstname: "?", lastname: "?", number: "?", goals: 0 } };
+    public static get Empty(): IPlayer { return { id: -1, firstname: "?", lastname: "?", number: "?", goals: 0, color: 0 } };
 
     public onSelect(e: MouseEvent) {
         const match = this.props.data.line!.match;
@@ -37,7 +38,7 @@ export default class Player extends Component<IProps, IState> {
         const data = props.data;
         const goals = data.goals! > 0 ? (<div class={style.goals}>{data.goals}</div>) : ("");
         return (
-            <div class={[style.player].join(" ")} style={{ background: data.color }} onClick={this.onSelect.bind(this)} id={data.id}>
+            <div class={[style.player].join(" ")} style={{ background: Colors[data.color] }} onClick={this.onSelect.bind(this)} id={data.id}>
                 {/* <img class={style.image} src="assets/img/tshirt.png" alt="player" /> */}
                 <div class={style.number}>{data.number}</div>
                 <div class={style.text}>{data.displayname}</div>
@@ -66,6 +67,7 @@ export default class Player extends Component<IProps, IState> {
 
         const result: IPlayer = {
             id: source.id,
+            color: 0,
             goals: 0,
             number: source.nr || "?",
             firstname: source.firstname || "?",

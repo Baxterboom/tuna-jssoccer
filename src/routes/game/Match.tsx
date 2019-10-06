@@ -9,7 +9,7 @@ export type IPlayerSeed = Pick<IPlayer, "id" | "goals" | "color">;
 
 export default class Match {
 
-    public static PlayerSeed = Object.freeze<IPlayerSeed>({ id: null, goals: 0, color: "" });
+    public static PlayerSeed = Object.freeze<IPlayerSeed>({ id: null, goals: 0, color: 0 });
 
     public home: ITeam = { id: 0, name: "ÄFF", score: 0 };
     public guest: ITeam = { id: 0, name: "OTHER", score: 0 };
@@ -47,11 +47,13 @@ export default class Match {
             lines.push(players);
         });
 
-        return lines.Select((s, i) => {
-            if (i == 1) return `G: ${s}`;
-            if (i == 2) return `D: ${s}`;
-            return (i == lines.length - 1) ? `O: ${s}` : `M: ${s}`;
-        })
+        return lines
+            .Select((s, i) => {
+                if (i == 0) return `G: ${s}`;
+                if (i == 1) return `D: ${s}`;
+                if (i == 2) return `M: ${s}`;
+                return `O: ${s}`;
+            })
             .Insert(`${this.home.name}: ${this.home.score} - ${this.guest.name}: ${this.guest.score}`, 0)
             .join("\n")
     }
