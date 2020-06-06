@@ -33,7 +33,7 @@ export default class Data {
 }`;
 
 const fs = require('fs');
-fs.writeFile("players.tsx", content, function (err) {
+fs.writeFile("./src/assets/db/players.tsx", content, function (err) {
   if (err) return console.log(err);
   console.log("The file was saved!");
 });

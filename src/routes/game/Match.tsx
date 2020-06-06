@@ -16,7 +16,9 @@ export default class Match {
     public playerListEventArgs: IPlayerListEventArgs = {};
     public lines: ILine[] = [];
 
-    constructor(public update: () => void) { }
+    constructor(update: () => void) {
+        this.update = update;
+    }
 
     public toString() {
         const lines: string[] = [];
@@ -35,6 +37,8 @@ export default class Match {
 
         return seedEncode(lines.join(";"));
     }
+
+    public update() { throw new Error("update not assigend"); };
 
     public print() {
         const lines: string[] = [];
